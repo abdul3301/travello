@@ -19,11 +19,13 @@ specifiers:
   moment: ^2.29.2
   react: ^17.0.2
   react-datepicker: ^4.7.0
+  react-debounce-input: ^3.2.5
   react-dom: ^17.0.2
   react-icons: ^4.3.1
   react-responsive-carousel: ^3.2.23
   react-router-dom: ^5.2.0
   react-scripts: ^5.0.0
+  react-toastify: ^8.2.0
   scrollreveal: ^4.0.9
   styled-components: ^5.3.3
   web-vitals: ^1.0.1
@@ -47,11 +49,13 @@ dependencies:
   moment: 2.29.2
   react: 17.0.2
   react-datepicker: 4.7.0_react-dom@17.0.2+react@17.0.2
+  react-debounce-input: 3.2.5_react@17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
   react-responsive-carousel: 3.2.23
   react-router-dom: 5.3.0_react@17.0.2
   react-scripts: 5.0.0_react@17.0.2
+  react-toastify: 8.2.0_react-dom@17.0.2+react@17.0.2
   scrollreveal: 4.0.9
   styled-components: 5.3.5_react-dom@17.0.2+react@17.0.2
   web-vitals: 1.1.2
@@ -9196,6 +9200,16 @@ packages:
       react-popper: 2.2.5_bdf4b8b1046519a8ec8ac2b64ac98053
     dev: false
 
+  /react-debounce-input/3.2.5_react@17.0.2:
+    resolution: {integrity: sha512-WDc9nvZ8E/cT4nW1RlD/r+Nsc5Z5+Jmj2v9HT9RzsPtxkwRTQUBCKJvdt1fCYy5ME/nQPoqVYmWUWSv7whGmig==}
+    peerDependencies:
+      react: ^15.3.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      lodash.debounce: 4.0.8
+      prop-types: 15.8.1
+      react: 17.0.2
+    dev: false
+
   /react-dev-utils/12.0.0_eslint@8.12.0+webpack@5.71.0:
     resolution: {integrity: sha512-xBQkitdxozPxt1YZ9O1097EJiVpwHr9FoAuEVURCKV0Av8NBERovJauzP7bo1ThvuhZ4shsQ1AJiu4vQpoT1AQ==}
     engines: {node: '>=14'}
@@ -9433,6 +9447,17 @@ packages:
       - webpack-cli
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: false
+
+  /react-toastify/8.2.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-Pg2Ju7NngAamarFvLwqrFomJ57u/Ay6i6zfLurt/qPynWkAkOthu6vxfqYpJCyNhHRhR4hu7+bySSeWWJu6PAg==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.1.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /react-transition-group/4.4.2_react-dom@17.0.2+react@17.0.2:

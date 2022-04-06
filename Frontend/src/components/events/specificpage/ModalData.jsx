@@ -19,6 +19,11 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -83,6 +88,13 @@ export default function ModalData({ open, handleClose, data }) {
         history.push('/Adventures');
       }, 2000);
     }
+  };
+
+  // Toast Notification
+  const notify = () => {
+    toast('Data Submitted Successfully', {
+      autoClose: 3000,
+    });
   };
 
   return (
@@ -195,7 +207,13 @@ export default function ModalData({ open, handleClose, data }) {
               <br></br>
               <br></br>
               <br></br>
-              <Button variant="contained" onClick={handleSubmit}>
+              <Button
+                variant="contained"
+                onClick={(event) => {
+                  handleSubmit(event);
+                  notify();
+                }}
+              >
                 Submit
               </Button>
             </Grid>
