@@ -1,24 +1,32 @@
-GET http://localhost:4000/  
+GET http://localhost:5000/  
 
 ###
 
-POST http://localhost:4000/auth/signup
+POST http://localhost:5000/user/register
 Content-Type: application/json
 
 {
-  "email": "sujuka@test.com",
-  "password": "333333"
+    "name":"Jahangir Ahmad",
+    "email": "jsofi502@gmail.com",
+    "phone": 9797071502,
+    "password": "test@123",
+    "cpassword": "test@123"
+}
+###
+
+POST http://localhost:5000/user/login
+Content-Type: application/json
+
+{
+    "email": "jsofi502@gmail.com",
+    "password": "test@123"
 }
 
 ###
 
-POST http://localhost:4000/auth/login
-Content-Type: application/json
 
-{
-  "email": "sujuka@test.com",
-  "password": "333333"
-}
+GET http://localhost:5000/users/all
+
 
 ###
 
@@ -26,6 +34,7 @@ GET http://localhost:4000/posts/private
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1anVrYUB0ZXN0LmNvbSIsImlhdCI6MTY0ODI5NzEzMywiZXhwIjoxNjQ4NjU3MTMzfQ.s0XdTZ5ld1-FFUv71RC6PvfpnBSrFEfcfEQot0oZRzE
 
 ###
+
 
 
 GET http://localhost:4000/posts/public
