@@ -9,46 +9,46 @@ import {
   Select,
   TextField,
   Typography,
-} from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DateTimePicker from '@mui/lab/DateTimePicker';
+} from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DateTimePicker from "@mui/lab/DateTimePicker";
 
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 toast.configure();
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 800,
   height: 630,
-  bgcolor: 'background.paper',
-  borderRadius: '4%',
+  bgcolor: "background.paper",
+  borderRadius: "4%",
   boxShadow: 24,
   p: 4,
 };
 
 export default function ModalData({ open, handleClose, data }) {
   // Form Data
-  const [venue, setVenue] = React.useState('');
-  const [value, setValue] = React.useState(new Date('2014-08-18T21:11:54'));
-  const [eventName, setEventName] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [title, setTitle] = useState('');
+  const [venue, setVenue] = React.useState("");
+  const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
+  const [eventName, setEventName] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
-    const title = JSON.parse(localStorage.getItem('venue'));
+    const title = JSON.parse(localStorage.getItem("venue"));
 
     setTitle(title?.title);
     // console.log(title);
@@ -79,20 +79,20 @@ export default function ModalData({ open, handleClose, data }) {
     };
 
     console.log(obj);
-    const res = await axios.post('/regEvent', obj);
+    const res = await axios.post("/regEvent", obj);
 
     if (res) {
-      console.log('Data Submittted');
+      console.log("Data Submittted");
 
       setTimeout(() => {
-        history.push('/Adventures');
+        history.push("/Adventures");
       }, 2000);
     }
   };
 
   // Toast Notification
   const notify = () => {
-    toast('Data Submitted Successfully', {
+    toast.success("Data Submitted Successfully", {
       autoClose: 3000,
     });
   };
@@ -108,11 +108,11 @@ export default function ModalData({ open, handleClose, data }) {
         <button
           onClick={handleClose}
           style={{
-            float: 'right',
-            padding: '10px 15px',
-            backgroundColor: 'white',
-            border: 'none',
-            cursor: 'pointer',
+            float: "right",
+            padding: "10px 15px",
+            backgroundColor: "white",
+            border: "none",
+            cursor: "pointer",
           }}
         >
           <CloseIcon />
@@ -130,7 +130,7 @@ export default function ModalData({ open, handleClose, data }) {
             <br></br>
 
             <img
-              style={{ width: 350, borderSpacing: '0 10px' }}
+              style={{ width: 350, borderSpacing: "0 10px" }}
               src={data.image}
               id="modal-modal-title"
               variant="h6"
@@ -145,7 +145,7 @@ export default function ModalData({ open, handleClose, data }) {
 
           {/* Form */}
           <form action="#">
-            <Grid item style={{ paddingRight: '90px' }}>
+            <Grid item style={{ paddingRight: "90px" }}>
               <h2>Get a Quick quote</h2>
               <br></br>
               <br></br>
@@ -195,7 +195,7 @@ export default function ModalData({ open, handleClose, data }) {
                 label="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-              ></TextField>{' '}
+              ></TextField>{" "}
               <br></br>
               <br></br>
               <TextField
@@ -203,7 +203,7 @@ export default function ModalData({ open, handleClose, data }) {
                 label="Mobile no"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-              ></TextField>{' '}
+              ></TextField>{" "}
               <br></br>
               <br></br>
               <br></br>
@@ -212,6 +212,7 @@ export default function ModalData({ open, handleClose, data }) {
                 onClick={(event) => {
                   handleSubmit(event);
                   notify();
+                  handleClose();
                 }}
               >
                 Submit
