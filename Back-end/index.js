@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 mongoDb();
 
+app.use('/', require('./routes/user'));
 app.use('/', require('./routes/events'));
 // app.use('/auth', require('./routes/auth'));
 // app.use('/posts', require('./routes/posts'));
