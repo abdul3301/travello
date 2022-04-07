@@ -16,6 +16,9 @@ mongoDb();
 
 app.use('/', require('./routes/user'));
 app.use('/', require('./routes/events'));
+
+// Events Data
+app.use('/', require('./routes/eventData'));
 // app.use('/auth', require('./routes/auth'));
 // app.use('/posts', require('./routes/posts'));
 
