@@ -19,6 +19,10 @@ app.use('/', require('./routes/events'));
 
 // Events Data
 app.use('/', require('./routes/eventData'));
+
+// Activities Routes
+app.use('/', require('./routes/activitiesData'));
+
 // app.use('/auth', require('./routes/auth'));
 // app.use('/posts', require('./routes/posts'));
 
