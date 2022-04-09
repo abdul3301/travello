@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import eventsdata from './eventsdata';
 import ModalData from './specificpage/ModalData';
 
+import axios from 'axios';
+
 export default function Events() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [data, setData] = useState(eventsdata[0]);
@@ -13,9 +15,31 @@ export default function Events() {
     setData(destination);
   };
 
+  // Fetch Event Data From Backend
+  const fetchEventData = async () => {
+    try {
+      const response = await axios.get(
+        'http://localhost:5000/activities/getActivities'
+      );
+
+      // console.log(response);
+
+      // First Result of the response
+      const firstResult = response.data.data.activitiesData[0];
+      console.log('First Result :- ', firstResult);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // fetchEventData();
+
   return (
     <Section id="recommend">
       <div className="destinations">
+        {/* Use the fetchEventData */}
+
         {eventsdata.map((destination) => {
           return (
             <div className="destination">
