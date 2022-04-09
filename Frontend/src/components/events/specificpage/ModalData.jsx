@@ -82,11 +82,11 @@ export default function ModalData({ open, handleClose, data }) {
     const res = await axios.post("/regEvent", obj);
 
     if (res) {
-      console.log("Data Submittted");
+      console.log("Data Submitted");
 
-      setTimeout(() => {
-        history.push("/Adventures");
-      }, 2000);
+      // setTimeout(() => {
+      //   history.push("/Adventures");
+      // }, 2000);
     }
   };
 

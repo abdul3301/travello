@@ -1,46 +1,47 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import eventsdata from './eventsdata';
-import ModalData from './specificpage/ModalData';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+// import eventsdata from "./eventsdata";
+import ModalData from "./specificpage/ModalData";
 
-import axios from 'axios';
+import axios from "axios";
 
 export default function Events() {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [data, setData] = useState(eventsdata[0]);
+  const [eventData, setEventData] = useState([{}]);
+  const [modalData, setModalData] = useState([{}]);
 
   const buttonClick = (destination) => {
-    localStorage.setItem('venue', JSON.stringify(destination));
+    localStorage.setItem("venue", JSON.stringify(destination));
     setIsModalVisible(true);
-    setData(destination);
+    setModalData(destination);
   };
 
   // Fetch Event Data From Backend
   const fetchEventData = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:5000/activities/getActivities'
+        "http://localhost:5000/events/getEvents",
       );
 
-      // console.log(response);
-
       // First Result of the response
-      const firstResult = response.data.data.activitiesData[0];
-      console.log('First Result :- ', firstResult);
-      return response;
+      const firstResult = response.data.data.eventData;
+      console.log(firstResult);
+      setEventData(firstResult);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // fetchEventData();
+  useEffect(() => {
+    fetchEventData();
+  }, []);
 
   return (
     <Section id="recommend">
       <div className="destinations">
         {/* Use the fetchEventData */}
 
-        {eventsdata.map((destination) => {
+        {eventData.map((destination) => {
           return (
             <div className="destination">
               <img src={destination.image} alt="" />
@@ -63,7 +64,7 @@ export default function Events() {
           );
         })}
         <ModalData
-          data={data}
+          data={modalData}
           open={isModalVisible}
           handleClose={() => setIsModalVisible(false)}
         />
