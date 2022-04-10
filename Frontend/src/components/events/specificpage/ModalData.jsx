@@ -83,10 +83,6 @@ export default function ModalData({ open, handleClose, data }) {
 
     if (res) {
       console.log("Data Submitted");
-
-      // setTimeout(() => {
-      //   history.push("/Adventures");
-      // }, 2000);
     }
   };
 
