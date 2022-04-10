@@ -2,14 +2,14 @@ const AdventuresData = require('../models/adventuresData');
 
 // Add Event Data
 const addAdventuresData = async (req, res) => {
-  const { image, title, subTitle, cost, activity, href } = req.body;
+  const { image, title, subTitle, cost, duration, href } = req.body;
   try {
     const adventuresData = new AdventuresData({
       image,
       title,
       subTitle,
       cost,
-      activity,
+      duration,
       href,
     });
     const newAdventuresData = await adventuresData.save();
