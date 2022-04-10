@@ -4,7 +4,7 @@
   "description": "auth",
   "main": "index.js",
   "scripts": {
-    "doremon": "nodemon index.js",
+    "nodemon": "nodemon index.js",
     "dev": "nodemon index.js",
     "server": "nodemon index.js -e js,ejs,css,json,html",
     "start": "concurrently \"npm run server\" \"cd ../Frontend && npm start\""

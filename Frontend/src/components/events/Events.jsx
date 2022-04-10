@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-// import eventsdata from "./eventsdata";
 import ModalData from "./specificpage/ModalData";
 
 import axios from "axios";

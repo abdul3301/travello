@@ -23,6 +23,9 @@ app.use('/', require('./routes/eventData'));
 // Activities Routes
 app.use('/', require('./routes/activitiesData'));
 
+// Adventures
+app.use('/', require('./routes/adventuresData'));
+
 // app.use('/auth', require('./routes/auth'));
 // app.use('/posts', require('./routes/posts'));
 
