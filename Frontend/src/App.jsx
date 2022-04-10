@@ -16,14 +16,14 @@ import Activities from "./components/activities/Activities";
 import Events from "./components/events/Events";
 import Gallery from "./components/gallery/Gallery";
 import MapPage from "./components/getLocation/MapPage";
-import CartPage from "./components/cart/CartPage";
+// import CartPage from "./components/cart/CartPage";
 import Exhibition from "./components/activities/specificpage/Exhibition";
 import IndiaArtFair from "./components/activities/specificpage/IndiaArtFair";
 import DairyExpo from "./components/activities/specificpage/DairyExpo";
 import PupperParty from "./components/activities/specificpage/PupperParty";
 import RoseExhibition from "./components/activities/specificpage/RoseExhibition";
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
-import Cart from "./components/cart/Cart";
+// import Cart from "./components/cart/Cart";
 
 export default function App() {
   useEffect(() => {
@@ -87,8 +87,8 @@ export default function App() {
           component={GalleryPupperParty}
         ></Route> */}
         <Route path="/MapPage" component={MapPage}></Route>
-        <Route path="/CartPage" component={CartPage}></Route>
-        <Route path="/Cart" component={Cart}></Route>
+        {/* <Route path="/CartPage" component={CartPage}></Route> */}
+        {/* <Route path="/Cart" component={Cart}></Route> */}
       </Switch>
       {/* Events Routing End */}
       <Route path="/Gallery" component={Gallery}></Route>

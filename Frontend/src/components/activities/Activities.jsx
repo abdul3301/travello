@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-// import activitiesdata from "./activitiesdata";
 export default function Activities() {
   const [activitiesData, setActivitiesData] = useState([{}]);
 
@@ -42,9 +41,6 @@ export default function Activities() {
 
                 <a className="button" href={destination.href}>
                   Read More
-                </a>
-                <a className="button" href="/Cart">
-                  Add to Cart
                 </a>
               </div>
             </div>
