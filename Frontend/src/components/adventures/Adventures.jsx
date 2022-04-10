@@ -1,12 +1,33 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import AdventuresData from "./AdventuresData";
 
 export default function Adventures() {
+  const [adventuresData, setAdventuresData] = useState([{}]);
+
+  // Fetch Event Data From Backend
+  const fetchEventData = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/adventures/getAdventures",
+      );
+
+      // First Result of the response
+      const firstResult = response.data.data.adventuresData;
+      console.log(firstResult);
+      setAdventuresData(firstResult);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEventData();
+  }, []);
   return (
     <Section id="recommend">
       <div className="destinations">
-        {AdventuresData.map((destination) => {
+        {adventuresData.map((destination) => {
           return (
             <div className="destination">
               <img src={destination.image} alt="" />
