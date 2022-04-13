@@ -6,7 +6,7 @@ const AdventuresDataSchema = new mongoose.Schema(
     title: { type: String, required: true },
     subTitle: { type: String, required: true },
     cost: { type: Number, required: true },
-    activity: {
+    duration: {
       type: String,
     },
     href: { type: String, required: true },
