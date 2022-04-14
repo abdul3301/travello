@@ -11,20 +11,14 @@ export default function DairyExpo() {
       <Carousel infiniteLoop autoPlay>
         <div className="image">
           <img
-             src="https://www.showsbee.com/newmaker/www/u/2012/201210/cfr_img/20121021129928101.png"
-             alt="IndiaDairyExpo"
-          />
-        </div>
-        <div className="image">
-          <img
             src="https://i0.wp.com/chinafoodpress.com/wp-content/uploads/2021/01/07/20210107_5ff76d48ec68f.jpg?resize=1000%2C600&ssl=1"
             alt="IndiaDairyExpo"
           />
         </div>
         <div className="image">
           <img
-           src="https://dairytechindia.in/assets/images/gallery/1.jpg"
-           alt="IndiaDairyExpo"
+            src="https://dairytechindia.in/assets/images/gallery/1.jpg"
+            alt="IndiaDairyExpo"
           />
         </div>
         <div className="image">
@@ -41,7 +35,7 @@ export default function DairyExpo() {
           <br></br>
           <h1 className="title"> Description :-</h1>
           <p className="para">
-          DairyTech India focuses on Dairy Machinery & Equipment Manufacturer
+            DairyTech India focuses on Dairy Machinery & Equipment Manufacturer
             / Exporters, Dairy Products Manufacturer / Exporter / Traders, Ghee
             Making Machines, Mixer, Feeders & Grinders. Packaging Machinery,
             Equipment & Materials, Feed Manufacturing Machinery. Feed Storage &
@@ -60,10 +54,9 @@ export default function DairyExpo() {
         <div className="content">
           <h1 className="title"> About the activity : - </h1>
           <p className="para">
-          BIEC Bengaluru International Exhibition Centre
-10th Mile Tumkur Road Madavara Post Dasanapura Hobli NH48 Bengaluru Karnataka 562123
-India.{" "}
-            <br></br>
+            BIEC Bengaluru International Exhibition Centre 10th Mile Tumkur Road
+            Madavara Post Dasanapura Hobli NH48 Bengaluru Karnataka 562123
+            India. <br></br>
             <br></br>
             Day 1 - Arrive at Exhibition site <br></br>
             <br></br>1. As you arrive at Exhibition site you’ll be required to
@@ -132,7 +125,7 @@ India.{" "}
 }
 
 const Section = styled.section`
-padding-top:6rem;
+padding-top:5rem;
 
   .carousel {
     display: flex;

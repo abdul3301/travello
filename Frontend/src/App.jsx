@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ScrollToTop from "./components/ScrollToTop";
-import Testimonials from "./components/Testimonials";
 import scrollreveal from "scrollreveal";
 import Camping from "./components/adventures/specificpage/Camping";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,14 +15,12 @@ import Activities from "./components/activities/Activities";
 import Events from "./components/events/Events";
 import Gallery from "./components/gallery/Gallery";
 import MapPage from "./components/getLocation/MapPage";
-// import CartPage from "./components/cart/CartPage";
 import Exhibition from "./components/activities/specificpage/Exhibition";
 import IndiaArtFair from "./components/activities/specificpage/IndiaArtFair";
 import DairyExpo from "./components/activities/specificpage/DairyExpo";
 import PupperParty from "./components/activities/specificpage/PupperParty";
 import RoseExhibition from "./components/activities/specificpage/RoseExhibition";
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
-// import Cart from "./components/cart/Cart";
 
 export default function App() {
   useEffect(() => {
@@ -51,7 +48,6 @@ export default function App() {
 
       <Switch>
         <Route path="/" exact component={Landing}></Route>
-        {/* <Route path="/Testimonials" component={Testimonials}></Route> */}
 
         {/* Adventures Routing Start */}
         <Route path="/Adventures" component={Adventures}></Route>
