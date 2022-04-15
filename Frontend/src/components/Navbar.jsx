@@ -42,6 +42,10 @@ export default function Navbar(props) {
               <li>
                 <a href="/Login">LogIn</a>
               </li>
+
+              <li>
+                <a href="/ExpenseTraker">Itinerary</a>
+              </li>
             </ul>
           </div>
 
