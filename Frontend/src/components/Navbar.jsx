@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Navbar(props) {
-
   const [showHamburger, setShowHamburger] = useState(false);
   return (
     <Section id="navbar">
@@ -36,22 +35,13 @@ export default function Navbar(props) {
               <li>
                 <a href="/Galleries">Gallery</a>
               </li>
-               <li>
+              <li>
                 <a href="/MapPage">Map</a>
               </li>
-            
-             <li>
+
+              <li>
                 <a href="/Login">LogIn</a>
               </li>
-
-              <li>
-                <a href="/Itinerary">Itinerary</a>
-              </li>
-
-              <li>
-                <a href="/CartPage"><i class ="fa fa-shopping-cart fa-2x"></i></a>
-              </li>
-
             </ul>
           </div>
 
@@ -98,7 +88,7 @@ const Section = styled.section`
   .main-nav {
     background-color: #e6e6e6;
     width: 100%;
-    height: 6rem;
+    height: 5rem;
     display: grid;
     align-items: center;
     grid-template-columns: 5rem 1fr 2fr 0fr 5rem;
@@ -130,7 +120,7 @@ const Section = styled.section`
     align-items: center;
   }
   .menu-link ul li {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .menu-link ul li a {
@@ -171,8 +161,9 @@ const Section = styled.section`
     .hamburger-menu {
       display: block;
       margin-left: 65%;
-      padding-left: 30%;
+      padding-left: 25%;
       font-size: 1.8rem;
+      position: fixed;
     }
 
     // mobile view start
@@ -226,8 +217,9 @@ const Section = styled.section`
     .hamburger-menu {
       display: block;
       margin-left: 65%;
-      padding-left: 30%;
+      padding-left: 25%;
       font-size: 1.8rem;
+      position: fixed;
     }
     // mobile view start
     .mobile-menu-link {
@@ -284,8 +276,9 @@ const Section = styled.section`
     .hamburger-menu {
       display: block;
       margin-left: 65%;
-      padding-left: 30%;
+      padding-left: 23%;
       font-size: 1.5rem;
+      position: fixed;
     }
     // mobile view start
     .mobile-menu-link {
@@ -320,7 +313,7 @@ const Section = styled.section`
 
     //mobile view end
   }
-  @media (max-width: 425px) {
+  @media (max-width: 520px) {
     .main-nav {
       height: 4rem;
       grid-template-column: 0.5rem 0.5fr 1fr 0.5rem 0.5rem;
@@ -343,8 +336,9 @@ const Section = styled.section`
     .hamburger-menu {
       display: block;
       margin-left: 65%;
-      padding-left: 30%;
+      padding-left: 20%;
       font-size: 1.5rem;
+      position: fixed;
     }
     // mobile view start
     .mobile-menu-link {

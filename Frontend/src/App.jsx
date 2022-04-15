@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 import scrollreveal from "scrollreveal";
 import Camping from "./components/adventures/specificpage/Camping";
@@ -21,7 +21,6 @@ import DairyExpo from "./components/activities/specificpage/DairyExpo";
 import PupperParty from "./components/activities/specificpage/PupperParty";
 import RoseExhibition from "./components/activities/specificpage/RoseExhibition";
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
-import Itinerary from "./components/itinerary/Itinerary";
 
 export default function App() {
   useEffect(() => {
@@ -49,7 +48,6 @@ export default function App() {
 
       <Switch>
         <Route path="/" exact component={Landing}></Route>
-        {/* <Route path="/Testimonials" component={Testimonials}></Route> */}
 
         {/* Adventures Routing Start */}
         <Route path="/Adventures" component={Adventures}></Route>
