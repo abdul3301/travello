@@ -45,6 +45,10 @@ export default function Navbar(props) {
               </li>
 
               <li>
+                <a href="/Itinerary">Itinerary</a>
+              </li>
+
+              <li>
                 <a href="/CartPage"><i class ="fa fa-shopping-cart fa-2x"></i></a>
               </li>
 

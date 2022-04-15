@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ScrollToTop from "./components/ScrollToTop";
-import Testimonials from "./components/Testimonials";
 import scrollreveal from "scrollreveal";
 import Camping from "./components/adventures/specificpage/Camping";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,14 +15,13 @@ import Activities from "./components/activities/Activities";
 import Events from "./components/events/Events";
 import Gallery from "./components/gallery/Gallery";
 import MapPage from "./components/getLocation/MapPage";
-// import CartPage from "./components/cart/CartPage";
 import Exhibition from "./components/activities/specificpage/Exhibition";
 import IndiaArtFair from "./components/activities/specificpage/IndiaArtFair";
 import DairyExpo from "./components/activities/specificpage/DairyExpo";
 import PupperParty from "./components/activities/specificpage/PupperParty";
 import RoseExhibition from "./components/activities/specificpage/RoseExhibition";
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
-// import Cart from "./components/cart/Cart";
+import Itinerary from "./components/itinerary/Itinerary";
 
 export default function App() {
   useEffect(() => {
@@ -93,8 +91,11 @@ export default function App() {
       {/* Events Routing End */}
       <Route path="/Gallery" component={Gallery}></Route>
       <Route path="/MapPage" component={MapPage}></Route>
-
+      {/* Itinerary Routing Starts */}
+      <Route path="/Itinerary" component={Itinerary}></Route>
+      {/* Itinerary Routing Starts */}
       {/* <SignIn /> */}
+     
       <ScrollToTop />
     </Router>
   );
