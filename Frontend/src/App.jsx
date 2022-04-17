@@ -21,6 +21,7 @@ import DairyExpo from "./components/activities/specificpage/DairyExpo";
 import PupperParty from "./components/activities/specificpage/PupperParty";
 import RoseExhibition from "./components/activities/specificpage/RoseExhibition";
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
+import ExpenseTraker from "./components/expenceTraker/ExpenseTraker";
 
 export default function App() {
   useEffect(() => {
@@ -89,8 +90,11 @@ export default function App() {
       {/* Events Routing End */}
       <Route path="/Gallery" component={Gallery}></Route>
       <Route path="/MapPage" component={MapPage}></Route>
-
+      {/* Expense Traker Routing Starts */}
+      <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>
+      {/* Expense Traker Routing Starts */}
       {/* <SignIn /> */}
+     
       <ScrollToTop />
     </Router>
   );
