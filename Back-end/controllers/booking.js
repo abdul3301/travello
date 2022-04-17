@@ -59,4 +59,4 @@ const getBookingOrderByeUserID =  async (req, res) => {
   }
 };
 
-module.exports = { createBooking,updateBooking ,deleteOrder, getBookingOrderByeUserID };
+module.exports = { createBooking,updateBooking ,deleteOrder, getBookingOrderByeUserID ,  findBookingOrder};
