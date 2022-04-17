@@ -38,6 +38,9 @@ export default function Navbar(props) {
               <li>
                 <a href="/MapPage">Map</a>
               </li>
+              <li>
+                <a href="/ExpenseTracker">Itinerary</a>
+              </li>
 
               <li>
                 <a href="/Login">LogIn</a>
@@ -88,7 +91,7 @@ const Section = styled.section`
   .main-nav {
     background-color: #e6e6e6;
     width: 100%;
-    height: 5rem;
+    height: 4rem;
     display: grid;
     align-items: center;
     grid-template-columns: 5rem 1fr 2fr 0fr 5rem;
@@ -100,7 +103,7 @@ const Section = styled.section`
   }
 
   .logo {
-    height: 5rem;
+    height: 4rem;
     display: grid;
     // background-color: #3b5998;
     grid-column: 2/3;
@@ -118,6 +121,7 @@ const Section = styled.section`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 13px;
   }
   .menu-link ul li {
     font-size: 1rem;

@@ -52,8 +52,8 @@ export default function Adventures() {
 }
 
 const Section = styled.section`
-  padding: 10rem 0;
-  .title {
+padding: 8rem 0;
+.title {
     text-align: center;
     font-size: 1rem;
   }

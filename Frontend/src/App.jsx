@@ -21,6 +21,7 @@ import DairyExpo from "./components/activities/specificpage/DairyExpo";
 import PupperParty from "./components/activities/specificpage/PupperParty";
 import RoseExhibition from "./components/activities/specificpage/RoseExhibition";
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
+import Login from "./components/Login";
 
 export default function App() {
   useEffect(() => {
@@ -91,6 +92,8 @@ export default function App() {
       <Route path="/MapPage" component={MapPage}></Route>
 
       {/* <SignIn /> */}
+
+      <Route path="/Login" component={Login}></Route>
       <ScrollToTop />
     </Router>
   );

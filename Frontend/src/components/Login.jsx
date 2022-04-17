@@ -4,7 +4,7 @@ import { GrFacebookOption } from "react-icons/gr";
 import { AiOutlineGooglePlus } from "react-icons/ai";
 import { GrLinkedinOption } from "react-icons/gr";
 
-export default function SignIn() {
+export default function Login() {
   return (
     <Section
       style={{
@@ -15,7 +15,6 @@ export default function SignIn() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        margin: "-20px 0 50px",
       }}
     >
       <div className="container" id="container">

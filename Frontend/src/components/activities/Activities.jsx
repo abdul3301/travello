@@ -52,7 +52,7 @@ export default function Activities() {
 }
 
 const Section = styled.section`
-  padding: 10rem 0;
+  padding: 8rem 0;
   .title {
     text-align: center;
     font-size: 1rem;
