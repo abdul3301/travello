@@ -53,7 +53,8 @@ export default function PupperParty() {
         <div className="content">
           <h1 className="title"> About the activity : - </h1>
           <p className="para">
-          The idea was to do something for the pets and help intermingling of dog owners who own the same breed. <br></br>
+            The idea was to do something for the pets and help intermingling of
+            dog owners who own the same breed. <br></br>
             <br></br>
             Day 1 - Arrive at Exhibition site <br></br>
             <br></br>1. As you arrive at Exhibition site you’ll be required to
@@ -122,7 +123,7 @@ export default function PupperParty() {
 }
 
 const Section = styled.section`
-padding-top:5rem;
+padding-top:4rem;
 
   .carousel {
     display: flex;

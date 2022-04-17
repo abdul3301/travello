@@ -133,7 +133,7 @@ export default function WildLifeTour() {
 }
 
 const Section = styled.section`
-padding-top:5rem;
+padding-top:4rem;
 
   .carousel {
     display: flex;
