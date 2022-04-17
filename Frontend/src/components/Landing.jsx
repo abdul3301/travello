@@ -18,7 +18,7 @@ export default function Landing() {
             <br></br>
             omnis enim in similique recusandae facilis modi laborum dolor quasi.
           </p>
-          <a href="#"> Explore</a>
+          <a href="/Login"> Explore</a>
         </div>
       </section>
 

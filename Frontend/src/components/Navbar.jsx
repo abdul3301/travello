@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
+import location from "../assets/location.png";
 
 export default function Navbar(props) {
   const [showHamburger, setShowHamburger] = useState(false);
@@ -8,6 +9,8 @@ export default function Navbar(props) {
     <Section id="navbar">
       <>
         <nav className="main-nav">
+          <img src={location} alt="" />
+
           <div className="logo">
             <h2>
               <span>T</span>ravelo
@@ -76,6 +79,12 @@ const Section = styled.section`
   li {
     list-style: none;
   }
+  img {
+    height: 2.5rem;
+    width: 3.7rem;
+    margin-left: 5.8rem;
+    margin-bottom: 15px;
+  }
   .logo h2 {
     font-size: 2.5rem;
     font-weight: 400;
@@ -84,10 +93,16 @@ const Section = styled.section`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .logo h2 span {
-    font-size: 3.5rem;
+  .logo h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-left: 4.5rem;
   }
-
+  .logo h2 span {
+    font-size: 3rem;
+  }
   .main-nav {
     background-color: #e6e6e6;
     width: 100%;
@@ -103,9 +118,8 @@ const Section = styled.section`
   }
 
   .logo {
-    height: 4rem;
+    height: 5rem;
     display: grid;
-    // background-color: #3b5998;
     grid-column: 2/3;
     justify-content: start;
     align-items: center;
@@ -148,9 +162,9 @@ const Section = styled.section`
 
   //Responsive
 
-  @media (max-width: 998px) {
+  @media (max-width: 1024px) {
     .main-nav {
-      height: 6rem;
+      height: 4rem;
       grid-template-column: 2rem 2fr 3fr 2rem 2rem;
     }
     .menu-link {
@@ -173,7 +187,7 @@ const Section = styled.section`
     // mobile view start
 
     .mobile-menu-link {
-      margin-top: 15px;
+      margin-top: -18px;
       grid-column: 2/4;
       position: relative;
       z-index: 99;
@@ -206,7 +220,7 @@ const Section = styled.section`
   }
   @media (max-width: 768px) {
     .main-nav {
-      height: 5rem;
+      height: 4rem;
       grid-template-column: 1rem 2fr 1fr 1fr 1rem;
     }
     .menu-link {
@@ -215,8 +229,13 @@ const Section = styled.section`
     .social-media {
       display: none;
     }
+    img {
+      margin-left: 2.5rem;
+      margin-bottom: 15px;
+    }
     .logo {
       height: 5rem;
+      margin-left: -60px;
     }
     .hamburger-menu {
       display: block;
@@ -227,7 +246,7 @@ const Section = styled.section`
     }
     // mobile view start
     .mobile-menu-link {
-      margin-top: 0px;
+      margin-top: -17px;
 
       grid-column: 2/4;
       position: relative;
@@ -258,65 +277,7 @@ const Section = styled.section`
 
     //mobile view end
   }
-  @media (max-width: 620px) {
-    .main-nav {
-      height: 4.5rem;
-      grid-template-column: 1rem 1fr 2fr 1rem 1rem;
-    }
-    .menu-link {
-      display: none;
-    }
-    .social-media {
-      display: none;
-    }
-    .logo h2 {
-      font-size: 1.5rem;
-      font-weight: 400;
-      text-transform: uppercase;
-    }
-    .logo h2 span {
-      font-size: 2rem;
-    }
-    .hamburger-menu {
-      display: block;
-      margin-left: 65%;
-      padding-left: 23%;
-      font-size: 1.5rem;
-      position: fixed;
-    }
-    // mobile view start
-    .mobile-menu-link {
-      margin-top: -10px;
 
-      grid-column: 2/4;
-      position: relative;
-      z-index: 99;
-    }
-    .mobile-menu-link {
-      background-color: white;
-      height: 20rem;
-      display: grid;
-      grid-column: 2/5;
-      align-items: center;
-      padding-left: 3rem;
-      transition: all 2s linear;
-      transform-origin: top;
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgba(0, 0, 0.3) 0px 30px 60px -30px;
-    }
-    .mobile-menu-link ul {
-      height: 20rem;
-      display: flex;
-      justify-content: space-around;
-      flex-direction: column;
-      align-items: start;
-    }
-    .mobile-menu-link ul li:first-child {
-      transition-delay: 0.2s;
-    }
-
-    //mobile view end
-  }
   @media (max-width: 520px) {
     .main-nav {
       height: 4rem;
@@ -328,11 +289,16 @@ const Section = styled.section`
     .social-media {
       display: none;
     }
+    img {
+      margin-left: 1rem;
+      margin-bottom: 20px;
+    }
     .logo h2 {
       font-size: 1.5rem;
       font-weight: 600;
       text-transform: uppercase;
       margin-bottom: 20px;
+      margin-left: 50px;
     }
     .logo h2 span {
       font-size: 3rem;
@@ -346,7 +312,7 @@ const Section = styled.section`
     }
     // mobile view start
     .mobile-menu-link {
-      margin-top: -16px;
+      margin-top: -25px;
 
       grid-column: 2/4;
       position: relative;

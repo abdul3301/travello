@@ -60,13 +60,25 @@ export default function Exhibition() {
         <div className="content">
           <h1 className="title"> About the activity : - </h1>
           <p className="para">
-          On the website TradeFairDates people can see a list of fairs and exhibitions from all over the world which are sorted by the exhibiting companiesâ€™ industries and fields of activity. With more than 420 exhibition sectors being listed in this outline, you will get an overview of the most important dates and venues. Especially today, fairs are an essential tool for product presentation. Due to the growing diversity and the increasing need for explanations of products, nowadays a fair has a multifunctional character that goes beyond the mere product sale. Thanks to the selection of fairs sorted by branches, you will find exhibitions of all kinds of industries – from the agricultural show to the motorcycle show. <br></br>
+            On the website TradeFairDates people can see a list of fairs and
+            exhibitions from all over the world which are sorted by the
+            exhibiting companiesâ€™ industries and fields of activity. With more
+            than 420 exhibition sectors being listed in this outline, you will
+            get an overview of the most important dates and venues. Especially
+            today, fairs are an essential tool for product presentation. Due to
+            the growing diversity and the increasing need for explanations of
+            products, nowadays a fair has a multifunctional character that goes
+            beyond the mere product sale. Thanks to the selection of fairs
+            sorted by branches, you will find exhibitions of all kinds of
+            industries – from the agricultural show to the motorcycle show.{" "}
+            <br></br>
             <br></br>
             Day 1 - Arrive at Exhibition site <br></br>
             <br></br>1. As you arrive at Exhibition site you’ll be required to
-            complete-check-in formalities <br></br> 2. Make yourselves comfortable at the accommodation provided to you. 
-            <br></br> 3. Enjoy the attraction places nearby<br></br>{" "}
-            4. The first day at the camp will end with light music and dinner
+            complete-check-in formalities <br></br> 2. Make yourselves
+            comfortable at the accommodation provided to you.
+            <br></br> 3. Enjoy the attraction places nearby<br></br> 4. The
+            first day at the camp will end with light music and dinner
             <br></br>
             <br></br>
             Day 2 - Attending Exhibitions and Return<br></br>
@@ -85,11 +97,18 @@ export default function Exhibition() {
           <div className="content">
             <h1 className="title">Advisory</h1>
             <p className="para">
-              1. A valid enrty pass is required to enter and participate inthe trade fairs/ exhibition.
-            <br></br>
-              2. Due process for custom clearance should be followed, through agencies recommended by the organizers, in order to ensure that the products/exhibits reach the venue well in time.<br></br>
-              3.  Efforts should be made to reach out to potential customers and business partners before and during the trade fair/ exhibitions through B2B/ B2C platforms. <br></br>
-              4. These could be coordinated through the organizers or the relevant Industry Association coordinating the Indian participation in the event<br></br>
+              1. A valid enrty pass is required to enter and participate inthe
+              trade fairs/ exhibition.
+              <br></br>
+              2. Due process for custom clearance should be followed, through
+              agencies recommended by the organizers, in order to ensure that
+              the products/exhibits reach the venue well in time.<br></br>
+              3. Efforts should be made to reach out to potential customers and
+              business partners before and during the trade fair/ exhibitions
+              through B2B/ B2C platforms. <br></br>
+              4. These could be coordinated through the organizers or the
+              relevant Industry Association coordinating the Indian
+              participation in the event<br></br>
               5. The package is exclusive of any en-route or personal expenses,
               videography and photography of the flight.<br></br>
               6. ID proof is mandatory for each individual guest at the time of
@@ -107,7 +126,7 @@ export default function Exhibition() {
           <div className="content">
             <h1 className="title">Accommodation</h1>
             <p className="para">
-              Hotels 
+              Hotels
               {/* <Gi3DGlasses /> */}
             </p>
           </div>
@@ -121,7 +140,7 @@ export default function Exhibition() {
 }
 
 const Section = styled.section`
-padding-top:5rem;
+padding-top:4rem;
 
   .carousel {
     display: flex;

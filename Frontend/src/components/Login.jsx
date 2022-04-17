@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GrFacebookOption } from "react-icons/gr";
 import { AiOutlineGooglePlus } from "react-icons/ai";
 import { GrLinkedinOption } from "react-icons/gr";
+import axios from "axios";
 
 export default function Login() {
+  const [signUp, setSignUp] = useState("");
+
   return (
     <Section
       style={{
@@ -15,9 +18,13 @@ export default function Login() {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+        paddingTop: "2rem",
       }}
     >
-      <div className="container" id="container">
+      <div
+        className={signUp ? "container" : " container right-panel-active "}
+        id="container"
+      >
         <div className="form-container sign-up-container">
           <form action="#">
             <h1>Create Account</h1>
@@ -67,14 +74,22 @@ export default function Login() {
               <p>
                 To keep connected with us please login with your personal info
               </p>
-              <button className="ghost" id="signIn">
+              <button
+                className="ghost"
+                id="signIn"
+                onClick={() => setSignUp(!signUp)}
+              >
                 Sign In
               </button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1> Hello, Friend!</h1>
               <p>Enter your personal details and start journey with us </p>
-              <button className="ghost" id="signUp">
+              <button
+                className="ghost"
+                id="signUp"
+                onClick={() => setSignUp(!signUp)}
+              >
                 Sign Up
               </button>
             </div>
@@ -237,5 +252,98 @@ const Section = styled.section`
   }
   .overlay-left {
     transform: translateX(-20%);
+  }
+
+  // Move signin to the right
+  .container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+  }
+
+  // Move overlay to left
+  .container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+  }
+
+  // Bring sign up over sign in
+  .container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+  }
+
+  // Move overlay back to right
+  .container.right-panel-active .overlay {
+    transform: translateX(50%);
+  }
+  .container.right-panel-active .overlay-left {
+    transform: translateX(0);
+  }
+  .container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+  }
+
+  // Responsive
+  @media (max-width: 998px) {
+    .container {
+      margin-top: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.85) 0px 5px 15px;
+      position: relative;
+      overflow: hidden;
+      width: 768px;
+      max-width: 98%;
+      min-height: 500px;
+    }
+  }
+  @media (max-width: 500px) {
+    .container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.85) 0px 5px 15px;
+      position: relative;
+      overflow: hidden;
+      width: 768px;
+      max-width: 95%;
+      min-height: 540px;
+    }
+    button {
+      border-radius: 20px;
+      border: 1px solid #ff4b2b;
+      background: #ff4b2b;
+      color: #fff;
+      font-size: 12px;
+      font-width: bold;
+      padding: 10px 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+      cursor: pointer;
+    }
+
+    .form-container form {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .overlay-panel {
+      position: absolute;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 100%;
+      width: 50%;
+      text-align: center;
+      transform: translateX(0);
+      transform: transform 0.6s ease-in-out;
+    }
   }
 `;

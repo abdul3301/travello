@@ -257,7 +257,7 @@ export default function Camping() {
 }
 
 const Section = styled.section`
-padding-top:5rem;
+padding-top:4rem;
 
   .carousel {
     display: flex;
@@ -417,7 +417,7 @@ padding-top:5rem;
      width:auto;
     }
     @media all and (max-width:425px) {
-      padding-top:4rem;
+      padding-top:3rem;
 
       .carousel .slider {
     height: 35vh;
@@ -432,6 +432,7 @@ padding-top:5rem;
 
       }
       @media all and (max-width:375px) {
+        
         .carousel .slider {
       height: 30vh;
         
