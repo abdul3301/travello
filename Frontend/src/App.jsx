@@ -22,6 +22,7 @@ import PupperParty from "./components/activities/specificpage/PupperParty";
 import RoseExhibition from "./components/activities/specificpage/RoseExhibition";
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
 import ExpenseTraker from "./components/expenceTraker/ExpenseTraker";
+import Login from "./components/Login";
 
 export default function App() {
   useEffect(() => {
@@ -94,7 +95,8 @@ export default function App() {
       <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>
       {/* Expense Traker Routing Starts */}
       {/* <SignIn /> */}
-     
+      <Route path="/Login" component={Login}></Route>
+
       <ScrollToTop />
     </Router>
   );
