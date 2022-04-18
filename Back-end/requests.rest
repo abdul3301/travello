@@ -1,3 +1,4 @@
+
 GET http://localhost:5000/  
 
 ###
@@ -30,11 +31,152 @@ GET http://localhost:5000/users/all
 
 ###
 
-GET http://localhost:4000/posts/private
+GET http://localhost:5000/posts/private
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1anVrYUB0ZXN0LmNvbSIsImlhdCI6MTY0ODI5NzEzMywiZXhwIjoxNjQ4NjU3MTMzfQ.s0XdTZ5ld1-FFUv71RC6PvfpnBSrFEfcfEQot0oZRzE
 
 ###
 
 
 
-GET http://localhost:4000/posts/public
+GET http://localhost:5000/posts/public
+
+@site = https://server110.herokuapp.com
+@url = http://localhost:5000
+@userID = 62545973d07e9c4c8af7ff7d
+@tokenL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTQ1OTczZDA3ZTljNGM4YWY3ZmY3ZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTAxMTY4NTUsImV4cCI6MTY1MDM3NjA1NX0.A0_8RpeIQchvCv9VCCEfQ7i7GEoUFjr2G5nW2PlG-0E
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTQ1OTczZDA3ZTljNGM4YWY3ZmY3ZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDk2OTUxODIsImV4cCI6MTY0OTk1NDM4Mn0.2RhkcrqS9WLunf304xazUNCHUfyFzIV2APZ-Kbxvg0E
+### variables
+
+### home  
+{{url}}
+
+### HOME
+GET http://localhost:5000
+###
+GET http://localhost:5000/1
+
+#### REGISTER USER
+
+POST  http://localhost:5000/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "Doraemon2",
+    "email": "Doraemon2@gmail.com",
+    "password": "1234567833"  
+}
+
+#### REGISTER ADMIN USER
+
+POST  http://localhost:5000/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "AdminUser1",
+    "email": "AdminUser1@gmail.com",
+    "password": "12345678"
+}
+
+#### LOGIN USER
+
+POST http://localhost:5000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "AdminUser",
+    "password": "123456782"
+}
+
+
+#### LIST OF ALL PRODUCTS 
+
+GET http://localhost:5000/api/products
+token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTQ1OTczZDA3ZTljNGM4YWY3ZmY3ZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTAxMTY4NTUsImV4cCI6MTY1MDM3NjA1NX0.A0_8RpeIQchvCv9VCCEfQ7i7GEoUFjr2G5nW2PlG-0E
+
+### CREAT PRODUCT by normal user
+
+POST http://localhost:5000/api/products
+token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTQ1OTczZDA3ZTljNGM4YWY3ZmY3ZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTAxMTY4NTUsImV4cCI6MTY1MDM3NjA1NX0.A0_8RpeIQchvCv9VCCEfQ7i7GEoUFjr2G5nW2PlG-0E
+
+{
+    "title": "Camp place ",
+    "desc": "camp site desc",
+    "price": 6000,
+}
+
+### CREAT PRODUCT by ADMIN user
+
+POST http://localhost:5000/api/products
+token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTQ1OTczZDA3ZTljNGM4YWY3ZmY3ZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTAxMTY4NTUsImV4cCI6MTY1MDM3NjA1NX0.A0_8RpeIQchvCv9VCCEfQ7i7GEoUFjr2G5nW2PlG-0E
+
+{
+    "title": "Camp place ",
+    "desc": "camp site desc",
+    "price": 6000,
+}
+### booking 
+
+POST http://localhost:5000/book
+
+{
+    "campProducts":[
+    {"ProductType": "Camp place "},
+    {"quantity": 1 },
+    {"price": 6000},
+    {"No_of_prople": 2}
+    ],
+    "TotalPrice": 12000
+}
+
+###############
+
+POST {{url}}/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "email": "admin@email.com",
+    "password": "12345678"
+}
+###
+
+POST {{url}}/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "Doraemon1",
+    "password": "1234567833"
+}
+
+####
+
+PUT {{url}}/api/{{userID}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "User2Updated"
+}
+
+
+
+###  deployed sites
+https://server110.herokuapp.com/home
+
+### 
+POST https://server110.herokuapp.com/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "Somesh133B",
+    "email": "Somes1h@email.com",
+    "password": "12345678"
+}
+
+###
+POST https://server110.herokuapp.com/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "AdminUser",
+    "password": "12345678"
+}
