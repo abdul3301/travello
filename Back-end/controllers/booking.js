@@ -1,4 +1,4 @@
-const Booked = require("../models/Booked");
+const Booked = require("../models/Booking");
 
 //CREATE an BOOKING Order
 const createBooking = async (req, res) => {

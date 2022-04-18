@@ -1,32 +1,50 @@
-
+### HOME   now listen are you there hello 
 GET http://localhost:5000/  
 
-###
+### REGISTER USER
 
 POST http://localhost:5000/user/register
 Content-Type: application/json
 
 {
-    "name":"Jahangir Ahmad",
-    "email": "jsofi502@gmail.com",
-    "phone": 9797071502,
+    "name":"test user1",
+    "email": "testuser@gmail.com",
+    "phone": 1234567890,
     "password": "test@123",
     "cpassword": "test@123"
 }
-###
+
+### LOGIN
 
 POST http://localhost:5000/user/login
 Content-Type: application/json
 
 {
-    "email": "jsofi502@gmail.com",
+    "email": "testuser@gmail.com",
     "password": "test@123"
 }
 
-###
-
+### GET ALL USER
 
 GET http://localhost:5000/users/all
+
+### BOOKING ORDER
+
+POST http://localhost:5000/booking
+Content-Type: application/json
+
+{
+    "userId":"userID",
+    "ProductType": "type",
+    "quantity": 2,
+    "No_of_people": 2,  
+    "price": 12000,
+    "status": "pending"
+} 
+
+
+
+
 
 
 ###
@@ -34,8 +52,8 @@ GET http://localhost:5000/users/all
 GET http://localhost:5000/posts/private
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1anVrYUB0ZXN0LmNvbSIsImlhdCI6MTY0ODI5NzEzMywiZXhwIjoxNjQ4NjU3MTMzfQ.s0XdTZ5ld1-FFUv71RC6PvfpnBSrFEfcfEQot0oZRzE
 
-###
-
+ 
+#####################################################
 
 
 GET http://localhost:5000/posts/public
@@ -49,11 +67,6 @@ GET http://localhost:5000/posts/public
 
 ### home  
 {{url}}
-
-### HOME
-GET http://localhost:5000
-###
-GET http://localhost:5000/1
 
 #### REGISTER USER
 
