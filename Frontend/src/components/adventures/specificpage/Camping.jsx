@@ -7,12 +7,57 @@ import { GiTreehouse } from "react-icons/gi";
 import { GiRiver } from "react-icons/gi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Camping() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [river, setRiver] = useState(0);
   const [house, setHouse] = useState(0);
   const [tent, setTent] = useState(0);
+
+  // Bookings
+
+  const [date, setDate] = React.useState(new Date("2014-08-18T21:11:54"));
+  const [type, setType] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [people, setPeople] = useState("");
+  const [price, setPrice] = useState("");
+
+  const handleChange = (newValue) => {
+    setDate(newValue);
+    // console.log(newValue);
+  };
+
+  const handleQuantity = (quantity) => {
+    setQuantity(quantity.target.value);
+    // console.log(quantity);
+  };
+
+  //  Get the data from form
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const obj = {
+      ProductType: type,
+      quantity: Number,
+      No_of_people: Number,
+      price: Number,
+    };
+
+    console.log(obj);
+    const res = await axios.post("/", obj);
+
+    if (res) {
+      console.log("Booking Accepted");
+    }
+  };
+
+  // Toast Notification
+  const notify = () => {
+    toast.success("Booking Accepted", {
+      autoClose: 2000,
+    });
+  };
 
   return (
     <Section id="sectionContainer">
@@ -184,12 +229,14 @@ export default function Camping() {
                 <button
                   className="btn"
                   onClick={() => setRiver(river - (river > 0 ? 1 : 0))}
+                  onChange={(e) => setQuantity(e.target.value)}
                 >
                   -
                 </button>
                 <button
                   className="btn"
                   onClick={() => setRiver(river + (river < 10 ? 1 : 0))}
+                  onChange={(e) => setQuantity(e.target.value)}
                 >
                   +
                 </button>
@@ -247,7 +294,15 @@ export default function Camping() {
         </table>
         <br></br>
 
-        <button className="booking">Book Camp</button>
+        <button
+          className="booking"
+          onClick={(event) => {
+            handleSubmit(event);
+            notify();
+          }}
+        >
+          Book Camp
+        </button>
         <br></br>
         <br></br>
       </div>
