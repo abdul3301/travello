@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const BookingSchema = new mongoose.Schema(
   {
-    userId: { type: String },  
+    userId: { type: String },
     ProductType: { type: String },
     quantity: { type: Number, default: 1 },
     No_of_people: { type: Number },
@@ -12,4 +12,4 @@ const BookingSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Booking", BookingSchema);
+module.exports = mongoose.model('Booking', BookingSchema);

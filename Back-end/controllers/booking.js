@@ -1,6 +1,6 @@
 const Booked = require("../models/Booking");
 
-//CREATE an BOOKING Order
+// CREATE an BOOKING Order
 const createBooking = async (req, res) => {
   const newOrder = new Booked(req.body);
 
@@ -12,7 +12,7 @@ const createBooking = async (req, res) => {
   }
 };
 
-//GET ALL
+// GET ALL
 const findBookingOrder = async (req, res) => {
   try {
     const orders = await Booked.find();
@@ -22,8 +22,7 @@ const findBookingOrder = async (req, res) => {
   }
 };
 
-
-//UPDATE
+// UPDATE
 const updateBooking = async (req, res) => {
   try {
     const updatedOrder = await Booked.findByIdAndUpdate(
@@ -39,18 +38,18 @@ const updateBooking = async (req, res) => {
   }
 };
 
-//DELETE
+// DELETE
 const deleteOrder = async (req, res) => {
   try {
     await Booked.findByIdAndDelete(req.params.id);
-    res.status(200).json("Order has been deleted...");
+    res.status(200).json('Order has been deleted...');
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
-//GET USER ORDERS
-const getBookingOrderByeUserID =  async (req, res) => {
+// GET USER ORDERS
+const getBookingOrderByeUserID = async (req, res) => {
   try {
     const orders = await Booked.find({ userId: req.params.userId });
     res.status(200).json(orders);
@@ -59,4 +58,10 @@ const getBookingOrderByeUserID =  async (req, res) => {
   }
 };
 
-module.exports = { createBooking,updateBooking ,deleteOrder, getBookingOrderByeUserID ,  findBookingOrder};
+module.exports = {
+  createBooking,
+  updateBooking,
+  deleteOrder,
+  getBookingOrderByeUserID,
+  findBookingOrder,
+};

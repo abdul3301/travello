@@ -1,4 +1,4 @@
-### HOME   now listen are you there hello 
+### HOME 
 GET http://localhost:5000/  
 
 ### REGISTER USER
@@ -34,7 +34,7 @@ POST http://localhost:5000/booking
 Content-Type: application/json
 
 {
-    "userId":"userID",
+    "userId":"625c35fd726149768e11c973",
     "ProductType": "type",
     "quantity": 2,
     "No_of_people": 2,  
