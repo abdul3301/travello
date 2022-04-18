@@ -20,77 +20,45 @@ const getUsers = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  // Create a new user using passport-local-mongoose
-  const { name, email, phone, password, cpassword } = req.body;
+  const { username, email, phone, password } = req.body;
+  // console.log(req.body);
 
-  // Check for email validation
+  // Email Validation
   if (!validator.validate(email)) {
-    return res.status(400).send({
-      status: 'fail',
-      message: 'Invalid email address',
-    });
+    return res.status(400).send({ error: 'Invalid Email' });
   }
 
-  // Check for password validation
+  // Password Validation
   if (password.length < 6) {
-    return res.status(400).send({
-      status: 'fail',
-      message: 'Password must be at least 6 characters long',
-    });
+    return res
+      .status(400)
+      .send({ error: 'Password must be at least 6 characters' });
   }
 
-  // Check for password match
-  if (password !== cpassword) {
-    return res.status(400).send({
-      status: 'fail',
-      message: 'Passwords do not match',
-    });
+  // Phone Validation
+  if (phone.length < 10) {
+    return res.status(400).send({ error: 'Invalid Phone Number' });
   }
 
-  // Check if name is empty
-  if (name.length < 1) {
-    return res.status(400).send({
-      status: 'fail',
-      message: 'Name cannot be empty',
-    });
-  }
-
-  // Check if phone is empty
-  if (phone.length < 1) {
-    return res.status(400).send({
-      status: 'fail',
-      message: 'Phone number cannot be empty',
-    });
-  }
-
-  // Check if phone is a number
-  if (Number.isNaN(phone)) {
-    return res.status(400).send({
-      status: 'fail',
-      message: 'Phone number must be a number',
-    });
-  }
-
-  // Check if the user already exists
+  // Check if the user exists
   const user = await User.findOne({ email });
   if (user) {
-    return res.status(400).send({
-      status: 'fail',
-      message: 'User already exists',
-    });
+    return res.status(400).send({ error: 'User already exists' });
   }
+
+  // Save the user
+  const newUser = new User({
+    username,
+    email,
+    phone,
+    password,
+  });
 
   // Hash the password
   const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(password, salt);
+  newUser.password = await bcrypt.hash(password, salt);
 
-  // Create a new user
-  const newUser = new User({
-    name,
-    email,
-    phone,
-    password: hashedPassword,
-  });
+  // Save the user
   try {
     const savedUser = await newUser.save();
     res.status(201).send({
@@ -99,10 +67,10 @@ const registerUser = async (req, res) => {
         user: savedUser,
       },
     });
-  } catch (err) {
+  } catch (error) {
     res.status(400).send({
       status: 'fail',
-      message: err,
+      message: error,
     });
   }
 };
