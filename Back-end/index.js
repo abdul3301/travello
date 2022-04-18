@@ -26,8 +26,8 @@ app.use('/', require('./routes/activitiesData'));
 // Adventures
 app.use('/', require('./routes/adventuresData'));
 
-//booked  wait 5 min
-app.use('/booking', require('./routes/booked'));
+// booked  wait 5 min
+app.use('/booking', require('./routes/booking'));
 
 // app.use('/auth', require('./routes/auth'));
 // app.use('/posts', require('./routes/posts'));
