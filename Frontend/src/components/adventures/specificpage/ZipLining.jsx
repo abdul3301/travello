@@ -4,10 +4,45 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function ZipLining() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [form, setForm] = useState(0);
+
+  //Adventures Bookings
+  const [date, setDate] = React.useState(new Date("2014-08-18T21:11:54"));
+
+  const handleChange = (newValue) => {
+    setDate(newValue);
+    // console.log(newValue);
+  };
+
+  // Request Object
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    const obj = {
+      ProductType: "Zip Lining:- FormCottage",
+      quantity: form,
+      No_of_people: form * 4,
+      price: form * 5500,
+    };
+
+    // console.log(quantity);
+    const res = await axios.post("/booking", obj);
+
+    if (res) {
+      console.log("Booking Accepted");
+    }
+  };
+
+  // Toast Notification
+  const notify = () => {
+    toast.success("Booking Accepted", {
+      autoClose: 2000,
+    });
+  };
 
   return (
     <Section id="sectionContainer">
@@ -61,7 +96,7 @@ export default function ZipLining() {
 
       <div className="container">
         <br></br>
-        <h1>Select Camping Dates</h1>
+        <h1>Zip Lining</h1>
         <br></br>
         <div className="date">
           <h4 className="checkIn">Check In </h4>
@@ -110,7 +145,15 @@ export default function ZipLining() {
         </table>
         <br></br>
 
-        <button className="booking">Book Camp</button>
+        <button
+          className="booking"
+          onClick={() => {
+            handleSubmit();
+            notify();
+          }}
+        >
+          Book Now
+        </button>
         <br></br>
         <br></br>
       </div>
