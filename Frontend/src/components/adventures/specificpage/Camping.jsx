@@ -16,36 +16,26 @@ export default function Camping() {
   const [house, setHouse] = useState(0);
   const [tent, setTent] = useState(0);
 
-  // Bookings
-
+  //Bookings
   const [date, setDate] = React.useState(new Date("2014-08-18T21:11:54"));
-  const [type, setType] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [people, setPeople] = useState("");
-  const [price, setPrice] = useState("");
 
   const handleChange = (newValue) => {
     setDate(newValue);
     // console.log(newValue);
   };
 
-  const handleQuantity = (quantity) => {
-    setQuantity(quantity.target.value);
-    // console.log(quantity);
-  };
-
-  //  Get the data from form
+  // Request Object
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const obj = {
-      ProductType: type,
-      quantity: Number,
-      No_of_people: Number,
-      price: Number,
+      ProductType: "River Rafting",
+      quantity: river,
+      No_of_people: river * 2,
+      price: river * 1000,
     };
 
-    console.log(obj);
-    const res = await axios.post("/", obj);
+    // console.log(quantity);
+    const res = await axios.post("/booking", obj);
 
     if (res) {
       console.log("Booking Accepted");
@@ -229,14 +219,12 @@ export default function Camping() {
                 <button
                   className="btn"
                   onClick={() => setRiver(river - (river > 0 ? 1 : 0))}
-                  onChange={(e) => setQuantity(e.target.value)}
                 >
                   -
                 </button>
                 <button
                   className="btn"
                   onClick={() => setRiver(river + (river < 10 ? 1 : 0))}
-                  onChange={(e) => setQuantity(e.target.value)}
                 >
                   +
                 </button>
