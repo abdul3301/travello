@@ -8,10 +8,46 @@ import { FaWineGlassAlt } from "react-icons/fa";
 import { AiOutlineAreaChart } from "react-icons/ai";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function CliffJumping() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [tent, setTent] = useState(0);
+
+  //Adventures Bookings
+  const [date, setDate] = React.useState(new Date("2014-08-18T21:11:54"));
+
+  const handleChange = (newValue) => {
+    setDate(newValue);
+    // console.log(newValue);
+  };
+
+  // Request Object
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    const obj = {
+      ProductType: "Cliff-Jumping:- Tent",
+      quantity: tent,
+      No_of_people: tent * 2,
+      price: tent * 2500,
+    };
+
+    // console.log(quantity);
+    const res = await axios.post("/booking", obj);
+
+    if (res) {
+      console.log("Booking Accepted");
+    }
+  };
+
+  // Toast Notification
+  const notify = () => {
+    toast.success("Booking Accepted", {
+      autoClose: 2000,
+    });
+  };
+
   return (
     <Section id="sectionContainer">
       <Carousel infiniteLoop autoPlay>
@@ -80,7 +116,7 @@ export default function CliffJumping() {
 
       <div className="container">
         <br></br>
-        <h1>Select Camping Dates</h1>
+        <h1>Cliff Jumping</h1>
         <br></br>
         <div className="date">
           <h4 className="checkIn">Check In </h4>
@@ -130,7 +166,15 @@ export default function CliffJumping() {
         </table>
         <br></br>
 
-        <button className="booking">Book Camp</button>
+        <button
+          className="booking"
+          onClick={() => {
+            handleSubmit();
+            notify();
+          }}
+        >
+          Book Now
+        </button>
         <br></br>
         <br></br>
       </div>
