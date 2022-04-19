@@ -4,8 +4,46 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 // import {Gi3DGlasses  } from "react-icons/gi";
 import "react-datepicker/dist/react-datepicker.css";
+import ReactDatePicker from "react-datepicker";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function DairyExpo() {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [activity, setActivity] = useState(0);
+
+  //activity Bookings
+  const [date, setDate] = React.useState(new Date("2014-08-18T21:11:54"));
+
+  const handleChange = (newValue) => {
+    setDate(newValue);
+    // console.log(newValue);
+  };
+
+  // Request Object
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    const obj = {
+      ProductType: "Daily Expo",
+      quantity: activity,
+      No_of_people: activity * 2,
+      price: activity * 5500,
+    };
+
+    // console.log(quantity);
+    const res = await axios.post("/booking", obj);
+
+    if (res) {
+      console.log("Booking Accepted");
+    }
+  };
+
+  // Toast Notification
+  const notify = () => {
+    toast.success("Booking Accepted", {
+      autoClose: 2000,
+    });
+  };
   return (
     <Section id="sectionContainer">
       <Carousel infiniteLoop autoPlay>
@@ -111,7 +149,7 @@ export default function DairyExpo() {
           <div className="content">
             <h1 className="title">Accommodation</h1>
             <p className="para">
-              Hotels
+              Hotel
               {/* <Gi3DGlasses /> */}
             </p>
           </div>
@@ -120,6 +158,76 @@ export default function DairyExpo() {
       {/* Content End */}
       <br></br>
       <br></br>
+
+      {/* Booking */}
+
+      <div className="container">
+        <br></br>
+        <h1>International Daily Expo</h1>
+        <br></br>
+        <div className="date">
+          <h4 className="checkIn">Check In </h4>
+          <ReactDatePicker
+            selected={selectedDate}
+            onChange={(date) => setSelectedDate(date)}
+            minDate={new Date()}
+            showTimeSelect
+            dateFormat="dd/MM/yyyy , p"
+            placeholderText="Select Date"
+          />
+          <br></br>
+          <br></br>
+        </div>
+
+        <table className="table">
+          <tr className="heading">
+            <th>Type</th>
+            <th> Approx 2 Days</th>
+            <th>Quantity</th>
+            <th>No of People</th>
+            <th>Total Price</th>
+          </tr>
+          <tr>
+            <td>Daily Expo</td>
+            <td>5500/2</td>
+            <td>
+              <h4 className="type">{activity}</h4>
+              <div className="btnContainer">
+                <button
+                  className="btn"
+                  onClick={() => setActivity(activity - (activity > 0 ? 1 : 0))}
+                >
+                  -
+                </button>
+                <button
+                  className="btn"
+                  onClick={() =>
+                    setActivity(activity + (activity < 10 ? 1 : 0))
+                  }
+                >
+                  +
+                </button>
+              </div>
+            </td>
+            <td> {activity * 2}</td>
+            <td> {activity * 5500}</td>
+          </tr>
+        </table>
+        <br></br>
+
+        <button
+          className="booking"
+          onClick={(event) => {
+            handleSubmit(event);
+            notify();
+          }}
+        >
+          Book Now
+        </button>
+        <br></br>
+        <br></br>
+      </div>
+      {/* Booking End */}
     </Section>
   );
 }
