@@ -22,7 +22,7 @@ import PupperParty from "./components/activities/specificpage/PupperParty";
 import RoseExhibition from "./components/activities/specificpage/RoseExhibition";
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
 import Login from "./components/Login";
-
+import ExpenseTraker from "./components/expenceTraker/ExpenseTraker";
 export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
@@ -90,7 +90,7 @@ export default function App() {
       {/* Events Routing End */}
       <Route path="/Gallery" component={Gallery}></Route>
       <Route path="/MapPage" component={MapPage}></Route>
-
+      <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>
       {/* <SignIn /> */}
 
       <Route path="/Login" component={Login}></Route>

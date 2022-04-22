@@ -42,7 +42,7 @@ export default function Navbar(props) {
                 <a href="/MapPage">Map</a>
               </li>
               <li>
-                <a href="/ExpenseTracker">Itinerary</a>
+                <a href="/ExpenseTraker">Itinerary</a>
               </li>
 
               <li>
