@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { GrFacebookOption } from 'react-icons/gr';
@@ -75,6 +76,71 @@ export default function Login() {
       history.push('/Adventures');
     } else {
       toast.error('Login Failed, try again');
+    }
+  };
+
+  const url = "/user/register";
+  const history = useHistory();
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+
+  const handleInputs = (e) => {
+    const newData = { ...data };
+    newData[e.target.name] = e.target.value;
+    setData(newData);
+    console.log(newData);
+  };
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const obj = {
+      username: data.name,
+      email: data.email,
+      phone: data.phone,
+      password: data.password,
+    };
+    const res = await axios.post("http://localhost:5000/user/register", obj);
+
+    if (res) {
+      console.log("Data Submitted");
+      toast.success("Registered Successfully, You Can Now Log In");
+    } else {
+      toast.error("Registration Failed, try again");
+    }
+
+    // console.log(obj);
+    // const res = await axios.post('http://localhost:5000/user/register ', obj);
+
+    // if (res) {
+    //   console.log('Data Submitted');
+    //   toast.success('Registration Successful, You Can Now Log In', {
+    //     autoClose: 3000,
+    //   });
+    // } else {
+    //   toast.error('Registration Failed', {
+    //     autoClose: 3000,
+    //   });
+    // }
+  };
+
+  const submitLogin = async (e) => {
+    e.preventDefault();
+    const obj = {
+      email: data.email,
+      password: data.password,
+    };
+    const res = await axios.post("http://localhost:5000/user/login", obj);
+
+    if (res) {
+      console.log("Data Submitted");
+      toast.success("Login Success");
+      history.push("/Adventures");
+    } else {
+      toast.error("Login Failed, try again");
     }
   };
 
@@ -390,7 +456,7 @@ const Section = styled.section`
   }
 
   // Responsive
-  @media (max-width: 998px) {
+  @media (max-width: 1024px) {
     .container {
       margin-top: 2rem;
       background: #fff;
