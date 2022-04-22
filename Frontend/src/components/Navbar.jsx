@@ -312,7 +312,7 @@ const Section = styled.section`
     }
     // mobile view start
     .mobile-menu-link {
-      margin-top: -25px;
+      margin-top: -16px;
 
       grid-column: 2/4;
       position: relative;
