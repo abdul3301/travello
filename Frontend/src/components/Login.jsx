@@ -1,17 +1,83 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { GrFacebookOption } from "react-icons/gr";
-import { AiOutlineGooglePlus } from "react-icons/ai";
-import { GrLinkedinOption } from "react-icons/gr";
-import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useHistory } from "react-router-dom";
+
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { GrFacebookOption } from 'react-icons/gr';
+import { AiOutlineGooglePlus } from 'react-icons/ai';
+import { GrLinkedinOption } from 'react-icons/gr';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useHistory } from 'react-router-dom';
 
 toast.configure();
 
 export default function Login() {
-  const [signUp, setSignUp] = useState("");
+  const [signUp, setSignUp] = useState('');
+
+  const url = '/user/register';
+  const history = useHistory();
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+  });
+
+  const handleInputs = (e) => {
+    const newData = { ...data };
+    newData[e.target.name] = e.target.value;
+    setData(newData);
+    console.log(newData);
+  };
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const obj = {
+      username: data.name,
+      email: data.email,
+      phone: data.phone,
+      password: data.password,
+    };
+    const res = await axios.post('http://localhost:5000/user/register', obj);
+
+    if (res) {
+      console.log('Data Submitted');
+      toast.success('Registered Successfully, You Can Now Log In');
+    } else {
+      toast.error('Registration Failed, try again');
+    }
+
+    // console.log(obj);
+    // const res = await axios.post('http://localhost:5000/user/register ', obj);
+
+    // if (res) {
+    //   console.log('Data Submitted');
+    //   toast.success('Registration Successful, You Can Now Log In', {
+    //     autoClose: 3000,
+    //   });
+    // } else {
+    //   toast.error('Registration Failed', {
+    //     autoClose: 3000,
+    //   });
+    // }
+  };
+
+  const submitLogin = async (e) => {
+    e.preventDefault();
+    const obj = {
+      email: data.email,
+      password: data.password,
+    };
+    const res = await axios.post('http://localhost:5000/user/login', obj);
+
+    if (res) {
+      console.log('Data Submitted');
+      toast.success('Login Success');
+      history.push('/Adventures');
+    } else {
+      toast.error('Login Failed, try again');
+    }
+  };
 
   const url = "/user/register";
   const history = useHistory();
@@ -82,17 +148,17 @@ export default function Login() {
     <Section
       style={{
         fontFamily: "'Lato', sans-serif",
-        background: "#f6f5f7",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        paddingTop: "2rem",
+        background: '#f6f5f7',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        paddingTop: '2rem',
       }}
     >
       <div
-        className={signUp ? "container" : " container right-panel-active "}
+        className={signUp ? 'container' : ' container right-panel-active '}
         id="container"
       >
         <div className="form-container sign-up-container">
@@ -327,7 +393,7 @@ const Section = styled.section`
     z-index: 100;
   }
   .overlay {
-    background-image: url("https://images.unsplash.com/photo-1589979812000-4eab44f02c30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=695&q=80");
+    background-image: url('https://images.unsplash.com/photo-1589979812000-4eab44f02c30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=695&q=80');
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
