@@ -23,6 +23,10 @@ import RoseExhibition from "./components/activities/specificpage/RoseExhibition"
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
 import Login from "./components/Login";
 import ExpenseTraker from "./components/expenceTraker/ExpenseTraker";
+import Home from "./components/pages/Home";
+import Products from "./components/Products";
+import Testimonials from "./components/Testimonials";
+import Wishlist from "./components/Wishlist";
 export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
@@ -48,7 +52,7 @@ export default function App() {
       <Navbar />
 
       <Switch>
-        <Route path="/" exact component={Landing}></Route>
+        <Route path="/" exact component={Home}></Route>
 
         {/* Adventures Routing Start */}
         <Route path="/Adventures" component={Adventures}></Route>
@@ -94,6 +98,9 @@ export default function App() {
       {/* <SignIn /> */}
 
       <Route path="/Login" component={Login}></Route>
+      <Route path="/Products" component={Products}></Route>
+      <Route path="/WishList" component={Wishlist}></Route>
+      <Route path="/Testimonials" component={Testimonials}></Route>
       <ScrollToTop />
     </Router>
   );
