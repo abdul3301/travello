@@ -13,17 +13,17 @@ export default function DairyExpo() {
   const [activity, setActivity] = useState(0);
 
   //activity Bookings
-  const [date, setDate] = React.useState(new Date("2014-08-18T21:11:54"));
+  const [date, setDate] = React.useState(new Date());
 
-  const handleChange = (newValue) => {
-    setDate(newValue);
-    // console.log(newValue);
+  const handleChange = () => {
+    setDate();
   };
 
   // Request Object
   const handleSubmit = async (e) => {
     // e.preventDefault();
     const obj = {
+      dateAndTime: date,
       ProductType: "Daily Expo",
       quantity: activity,
       No_of_people: activity * 2,
@@ -169,11 +169,13 @@ export default function DairyExpo() {
           <h4 className="checkIn">Check In </h4>
           <ReactDatePicker
             selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
+            value={date}
+            onChange={(date) => setSelectedDate(date) && handleChange}
             minDate={new Date()}
             showTimeSelect
             dateFormat="dd/MM/yyyy , p"
             placeholderText="Select Date"
+            // onChange={handleChange}
           />
           <br></br>
           <br></br>
