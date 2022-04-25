@@ -324,7 +324,7 @@ const Section = styled.section`
     height: 100%;
     overflow: hidden;
     transform: transform 0.6s ease-in-out;
-    z-index: 100;
+    z-index: 99;
   }
   .overlay {
     background-image: url("https://images.unsplash.com/photo-1589979812000-4eab44f02c30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=695&q=80");
