@@ -43,7 +43,7 @@ export default function App() {
       {
         opacity: 0,
         interval: 300,
-      },
+      }
     );
   }, []);
 
@@ -66,6 +66,7 @@ export default function App() {
         <Route path="/Adventure/ZipLining" component={ZipLining}></Route>
         <Route path="/Adventure/SkyDiving" component={SkyDiving}></Route>
         {/* Adventures Routing End */}
+
         {/* Activities Routing Start */}
         <Route path="/Activities" component={Activities}></Route>
         <Route path="/Activity/Exhibition" component={Exhibition}></Route>
@@ -78,29 +79,20 @@ export default function App() {
         ></Route>
         <Route path="/Activity/WildLifeTour" component={WildLifeTour}></Route>
         {/* Activities Routing End */}
+
         {/* Events Routing Start */}
         <Route path="/Events" component={Events}></Route>
         {/* Events Routing End */}
-        {/* Gallery Routing Start */}
-        <Route path="/Galleries" component={Gallery}></Route>
-        {/* <Route
-          path="/Gallery/GalleryPupperParty"
-          component={GalleryPupperParty}
-        ></Route> */}
-        <Route path="/MapPage" component={MapPage}></Route>
-        {/* <Route path="/CartPage" component={CartPage}></Route> */}
-        {/* <Route path="/Cart" component={Cart}></Route> */}
-      </Switch>
-      {/* Events Routing End */}
-      <Route path="/Gallery" component={Gallery}></Route>
-      <Route path="/MapPage" component={MapPage}></Route>
-      <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>
-      {/* <SignIn /> */}
 
-      <Route path="/Login" component={Login}></Route>
-      <Route path="/Products" component={Products}></Route>
-      <Route path="/WishList" component={Wishlist}></Route>
-      <Route path="/Testimonials" component={Testimonials}></Route>
+        <Route path="/Products" component={Products}></Route>
+        <Route path="/WishList" component={Wishlist}></Route>
+        <Route path="/Testimonials" component={Testimonials}></Route>
+        <Route path="/Galleries" component={Gallery}></Route>
+        <Route path="/MapPage" component={MapPage}></Route>
+        <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>
+        <Route path="/Login" component={Login}></Route>
+      </Switch>
+
       <ScrollToTop />
     </Router>
   );
