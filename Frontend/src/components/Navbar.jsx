@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
 import location from "../assets/location.png";
 
-export default function Navbar(props) {
+export default function Navbar({ loginUser, handleLogout }) {
   const [showHamburger, setShowHamburger] = useState(false);
   return (
     <Section id="navbar">
@@ -45,8 +45,38 @@ export default function Navbar(props) {
                 <a href="/ExpenseTraker">Itinerary</a>
               </li>
 
+              <div class="dropdown">
+                <button class="dropbtn">
+                  Products <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/Products">Product-List</a>
+                  <a href="/WishList">Wish-List</a>
+                </div>
+              </div>
+
+              {!loginUser ? (
+                <li>
+                  <a href="/Login">LogIn</a>
+                </li>
+              ) : (
+                <li
+                  title="Click to Log-out"
+                  onClick={handleLogout}
+                  style={{ cursor: "pointer", fontWeight: "bold" }}
+                >
+                  {loginUser?.email?.split("@")[0]}
+                </li>
+              )}
+
               <li>
-                <a href="/Login">LogIn</a>
+                <a href="/About">AboutUs</a>
+              </li>
+
+              <li>
+                <a href="/CartPage">
+                  <i class="fa fa-shopping-cart fa-2x"></i>
+                </a>
               </li>
             </ul>
           </div>
@@ -115,6 +145,52 @@ const Section = styled.section`
     -moz-box-shadow: 0px 4px 9px 1px rgba(56, 47, 47, 0.75);
     position: fixed;
     z-index: 100;
+    top: 0;
+  }
+
+  .dropdown {
+    float: left;
+    overflow: hidden;
+    font-size: 19px;
+  }
+  .dropdown .dropbtn {
+    font-size: 19px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  .navbar a:hover,
+  .dropdown:hover .dropbtn {
+    background-color: #ddd;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 15px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .fa fa-caret-down {
+    gap: 5px;
   }
 
   .logo {

@@ -10,7 +10,6 @@ import ZipLining from "./components/adventures/specificpage/ZipLining";
 import SkyDiving from "./components/adventures/specificpage/SkyDiving";
 import Adventures from "./components/adventures/Adventures";
 import Navbar from "./components/Navbar";
-import Landing from "./components/Landing";
 import Activities from "./components/activities/Activities";
 import Events from "./components/events/Events";
 import Gallery from "./components/gallery/Gallery";
