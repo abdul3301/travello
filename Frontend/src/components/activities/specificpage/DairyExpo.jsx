@@ -31,7 +31,7 @@ export default function DairyExpo() {
     };
 
     // console.log(quantity);
-    const res = await axios.post("/booking", obj);
+    const res = await axios.post("/activitiesBooking", obj);
 
     if (res) {
       console.log("Booking Accepted");
