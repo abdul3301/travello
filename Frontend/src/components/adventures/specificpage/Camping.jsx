@@ -17,7 +17,7 @@ export default function Camping() {
   const [tent, setTent] = useState(0);
 
   //Bookings
-  const [date, setDate] = React.useState(new Date("2014-08-18T21:11:54"));
+  const [date, setDate] = React.useState(new Date());
 
   const handleChange = (newValue) => {
     setDate(newValue);
@@ -28,14 +28,32 @@ export default function Camping() {
   const handleSubmit = async (e) => {
     // e.preventDefault();
     const obj = {
-      ProductType: "River Rafting",
-      quantity: river,
-      No_of_people: river * 2,
-      price: river * 1000,
+      dateAndTime: date,
+      AdventureType: "Camping",
+      AdventuresBooking: [
+        {
+          ProductType: "River Rafting",
+          quantity: river,
+          No_of_people: river * 2,
+          price: river * 1000,
+        },
+        {
+          ProductType: "Tree House",
+          quantity: house,
+          No_of_people: house * 2,
+          price: house * 4500,
+        },
+        {
+          ProductType: "Tent",
+          quantity: tent,
+          No_of_people: tent * 2,
+          price: tent * 2500,
+        },
+      ],
     };
 
     // console.log(quantity);
-    const res = await axios.post("/booking", obj);
+    const res = await axios.post("/adventuresBooking", obj);
 
     if (res) {
       console.log("Booking Accepted");
@@ -192,7 +210,7 @@ export default function Camping() {
           <h4 className="checkIn">Check In </h4>
           <DatePicker
             selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
+            onChange={(date) => setSelectedDate(date) && handleChange}
             minDate={new Date()}
             showTimeSelect
             dateFormat="dd/MM/yyyy , p"
