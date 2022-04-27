@@ -16,7 +16,7 @@ export default function CliffJumping() {
   const [tent, setTent] = useState(0);
 
   //Adventures Bookings
-  const [date, setDate] = React.useState(new Date("2014-08-18T21:11:54"));
+  const [date, setDate] = React.useState(new Date());
 
   const handleChange = (newValue) => {
     setDate(newValue);
@@ -27,14 +27,19 @@ export default function CliffJumping() {
   const handleSubmit = async (e) => {
     // e.preventDefault();
     const obj = {
-      ProductType: "Cliff-Jumping:- Tent",
-      quantity: tent,
-      No_of_people: tent * 2,
-      price: tent * 2500,
+      dateAndTime: date,
+      AdventureType: "Cliff Jumping",
+      AdventuresBooking: [
+        {
+          ProductType: "Tent",
+          quantity: tent,
+          No_of_people: tent * 2,
+          price: tent * 2500,
+        },
+      ],
     };
-
     // console.log(quantity);
-    const res = await axios.post("/booking", obj);
+    const res = await axios.post("/adventuresBooking", obj);
 
     if (res) {
       console.log("Booking Accepted");
@@ -122,7 +127,7 @@ export default function CliffJumping() {
           <h4 className="checkIn">Check In </h4>
           <DatePicker
             selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
+            onChange={(date) => setSelectedDate(date) && handleChange}
             showTimeSelect
             minDate={new Date()}
             dateFormat="dd/MM/yyyy , p"

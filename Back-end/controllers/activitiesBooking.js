@@ -1,4 +1,4 @@
-const Booked = require("../models/booking");
+const Booked = require("../models/activitiesBooking");
 
 // CREATE an BOOKING Order
 const createBooking = async (req, res) => {
@@ -30,7 +30,7 @@ const updateBooking = async (req, res) => {
       {
         $set: req.body,
       },
-      { new: true }
+      { new: true },
     );
     res.status(200).json(updatedOrder);
   } catch (err) {
@@ -42,7 +42,7 @@ const updateBooking = async (req, res) => {
 const deleteOrder = async (req, res) => {
   try {
     await Booked.findByIdAndDelete(req.params.id);
-    res.status(200).json('Order has been deleted...');
+    res.status(200).json("Order has been deleted...");
   } catch (err) {
     res.status(500).json(err);
   }

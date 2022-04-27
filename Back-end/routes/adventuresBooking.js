@@ -6,7 +6,7 @@ const {
   updateBooking,
   deleteOrder,
   getBookingOrderByeUserID,
-} = require('../controllers/booking');
+} = require("../controllers/adventuresBooking");
 
 //CREATE an BOOKING Order
 router.post("/", createBooking);
@@ -17,6 +17,6 @@ router.delete("/", deleteOrder);
 //GET USER ORDERS by userID
 router.get("/find/:userId", getBookingOrderByeUserID);
 
-router.get('/', findBookingOrder);
+router.get("/", findBookingOrder);
 
 module.exports = router;

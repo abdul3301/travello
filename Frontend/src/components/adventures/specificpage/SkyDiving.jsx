@@ -6,11 +6,58 @@ import { GiCampingTent } from "react-icons/gi";
 import { GiTreehouse } from "react-icons/gi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function SkyDiving() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [house, setHouse] = useState(0);
   const [tent, setTent] = useState(0);
+
+  //Bookings
+  const [date, setDate] = React.useState(new Date());
+
+  const handleChange = (newValue) => {
+    setDate(newValue);
+    // console.log(newValue);
+  };
+
+  // Request Object
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    const obj = {
+      dateAndTime: date,
+      AdventureType: "Sky Diving",
+      AdventuresBooking: [
+        {
+          ProductType: "Tree House",
+          quantity: house,
+          No_of_people: house * 2,
+          price: house * 4500,
+        },
+        {
+          ProductType: "Tent",
+          quantity: tent,
+          No_of_people: tent * 2,
+          price: tent * 2500,
+        },
+      ],
+    };
+
+    // console.log(quantity);
+    const res = await axios.post("/adventuresBooking", obj);
+
+    if (res) {
+      console.log("Booking Accepted");
+    }
+  };
+
+  // Toast Notification
+  const notify = () => {
+    toast.success("Booking Accepted", {
+      autoClose: 2000,
+    });
+  };
 
   return (
     <Section id="sectionContainer">
@@ -130,7 +177,7 @@ export default function SkyDiving() {
           <h4 className="checkIn">Check In </h4>
           <DatePicker
             selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
+            onChange={(date) => setSelectedDate(date) && handleChange}
             showTimeSelect
             minDate={new Date()}
             dateFormat="dd/MM/yyyy , p"
@@ -196,7 +243,15 @@ export default function SkyDiving() {
           </tr>
         </table>
         <br></br>
-        <button className="booking">Book Camp</button>
+        <button
+          className="booking"
+          onClick={(event) => {
+            handleSubmit(event);
+            notify();
+          }}
+        >
+          Book Camp
+        </button>
         <br></br>
         <br></br>
       </div>
