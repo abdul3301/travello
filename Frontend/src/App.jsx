@@ -30,7 +30,7 @@ export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
       origin: "top",
-      distance: "80px",
+      distance: "100px",
       duration: 2000,
       reset: true,
     });
@@ -38,11 +38,12 @@ export default function App() {
       `
         #adventures,
         #testimonials
+        
         `,
       {
         opacity: 0,
         interval: 300,
-      }
+      },
     );
   }, []);
 

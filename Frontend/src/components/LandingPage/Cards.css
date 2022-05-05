@@ -1,11 +1,12 @@
 .cards {
-  padding: 4rem;
- background: rgb(203, 194, 194);
-  
+  /* padding: 4rem; */
+  background: rgb(203, 194, 194);
 }
 
-h1 {
+.h1 {
   text-align: center;
+  padding-top: 80px;
+  padding-bottom: 30px;
 }
 
 .cards__container {
@@ -24,7 +25,6 @@ h1 {
 
 .cards__items {
   margin-bottom: 24px;
-
 }
 
 .cards__item {
@@ -99,6 +99,10 @@ h1 {
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+}
+.gallery {
+  margin-top: -40px;
+  margin-bottom: 30px;
 }
 
 @media only screen and (min-width: 1200px) {

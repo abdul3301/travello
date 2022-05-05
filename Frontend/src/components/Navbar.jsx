@@ -35,9 +35,9 @@ export default function Navbar({ loginUser, handleLogout }) {
               <li>
                 <a href="/Events">Events</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="/Galleries">Gallery</a>
-              </li>
+              </li> */}
               <li>
                 <a href="/MapPage">Map</a>
               </li>
@@ -68,16 +68,6 @@ export default function Navbar({ loginUser, handleLogout }) {
                   {loginUser?.email?.split("@")[0]}
                 </li>
               )}
-
-              <li>
-                <a href="/About">AboutUs</a>
-              </li>
-
-              <li>
-                <a href="/CartPage">
-                  <i class="fa fa-shopping-cart fa-2x"></i>
-                </a>
-              </li>
             </ul>
           </div>
 
