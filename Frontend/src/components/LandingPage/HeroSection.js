@@ -6,14 +6,14 @@ import "./HeroSection.css";
 function HeroSection() {
   return (
     <div className="hero-container">
-      <h1>ADVENTURE AWAITS</h1>
+      <h1 style={{ textAlign: "center" }}>ADVENTURE AWAITS</h1>
       <p>What are you waiting for?</p>
       <div className="hero-btns">
         <Button
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
-          href="/register"
+          href="/Login"
         >
           GET STARTED
         </Button>

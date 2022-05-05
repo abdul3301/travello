@@ -1,9 +1,9 @@
 import React from "react";
 import "../../App.css";
-import Cards from "../LandingComp/Cards";
-import Footer from "../LandingComp/Footer";
-import HeroSection from "../LandingComp/HeroSection";
-import Testimonials from "../Testimonials/Testimonials";
+import Cards from "../LandingPage/Cards";
+import Footer from "../LandingPage/Footer";
+import HeroSection from "../LandingPage/HeroSection";
+import Testimonials from "../Testimonials";
 
 function Home({ history }) {
   console.log(history);
@@ -12,7 +12,7 @@ function Home({ history }) {
       <HeroSection />
       <Cards />
       <Testimonials />
-      <br/>
+      <br />
       <Footer />
     </>
   );
