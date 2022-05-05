@@ -1,0 +1,38 @@
+.productMain{
+    position: relative;
+    top: 80px;
+    height: fit-content;
+    margin: 50px 250px;
+    padding: 10px;   
+    
+}
+.productSubMain {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    border: 2px solid black;
+    text-align: center;
+    align-items: center;
+    grid-template-columns: auto auto auto ;
+    grid-template-rows: auto auto auto;       
+    row-gap: 50px;
+    box-shadow: 5px 5px 10px 5px; 
+    height: fit-content;
+}
+.productCard{    
+    display: grid;
+    margin: 20px;   
+    text-align: center;
+    align-items: center;
+    grid-template-columns: auto auto auto ;
+    grid-template-rows: auto auto auto;   
+    gap: 30px;
+}
+.ant-card{
+    box-shadow: 5px 5px 4px 2px rgb(163, 153, 153);
+    
+}
+
+@media screen {
+    
+}

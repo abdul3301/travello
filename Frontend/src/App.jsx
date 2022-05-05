@@ -10,7 +10,6 @@ import ZipLining from "./components/adventures/specificpage/ZipLining";
 import SkyDiving from "./components/adventures/specificpage/SkyDiving";
 import Adventures from "./components/adventures/Adventures";
 import Navbar from "./components/Navbar";
-import Landing from "./components/Landing";
 import Activities from "./components/activities/Activities";
 import Events from "./components/events/Events";
 import Gallery from "./components/gallery/Gallery";
@@ -23,6 +22,10 @@ import RoseExhibition from "./components/activities/specificpage/RoseExhibition"
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
 import Login from "./components/Login";
 import ExpenseTraker from "./components/expenceTraker/ExpenseTraker";
+import Home from "./components/pages/Home";
+import Products from "./components/Products";
+import Testimonials from "./components/Testimonials";
+import Wishlist from "./components/Wishlist";
 export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
@@ -39,7 +42,7 @@ export default function App() {
       {
         opacity: 0,
         interval: 300,
-      },
+      }
     );
   }, []);
 
@@ -48,7 +51,7 @@ export default function App() {
       <Navbar />
 
       <Switch>
-        <Route path="/" exact component={Landing}></Route>
+        <Route path="/" exact component={Home}></Route>
 
         {/* Adventures Routing Start */}
         <Route path="/Adventures" component={Adventures}></Route>
@@ -80,6 +83,9 @@ export default function App() {
         <Route path="/Events" component={Events}></Route>
         {/* Events Routing End */}
 
+        <Route path="/Products" component={Products}></Route>
+        <Route path="/WishList" component={Wishlist}></Route>
+        <Route path="/Testimonials" component={Testimonials}></Route>
         <Route path="/Galleries" component={Gallery}></Route>
         <Route path="/MapPage" component={MapPage}></Route>
         <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>

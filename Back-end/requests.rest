@@ -35,12 +35,21 @@ Content-Type: application/json
 
 {
     "userId":"625c35fd726149768e11c973",
-    "ProductType": "type",
+    "Booking":[{
+    "ProductType": "Tree house",
     "quantity": 2,
     "No_of_people": 2,  
     "price": 12000,
     "status": "pending"
-} 
+    },
+    {
+    "ProductType": "Tent",
+    "quantity": 2,
+    "No_of_people": 2,  
+    "price": 12000,
+    "status": "pending"
+    }]
+}
 
 
 
