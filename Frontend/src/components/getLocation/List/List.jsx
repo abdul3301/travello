@@ -31,7 +31,7 @@ function List({places,childClicked,isLoading, type, setType, rating, setRating})
           <MenuItem value="attractions">Attractions</MenuItem>
         </Select>
       </FormControl>
-      <FormControl className={classes.formControl}>
+      {/* <FormControl className={classes.formControl}>
         <InputLabel>Rating</InputLabel>
         <Select value={rating} onChange={(e)=> setRating(e.target.value)}>
           <MenuItem value={0}>All</MenuItem>
@@ -39,7 +39,7 @@ function List({places,childClicked,isLoading, type, setType, rating, setRating})
           <MenuItem value={4}>Above 4.0</MenuItem>
           <MenuItem value={5}>Above 4.5</MenuItem>
         </Select>
-      </FormControl>
+      </FormControl> */}
 
       <Grid container spacing = {3} className={classes.list}>
         {places ?. map((place, i)=>(
