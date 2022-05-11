@@ -79,14 +79,13 @@ export default function ModalData({ open, handleClose, data }) {
     };
 
     console.log(obj);
-    const res = await axios.post("/regEvent", obj);
+    const res = await axios.post(
+      "https://travelo-backend.herokuapp.com/regEvent",
+      obj,
+    );
 
     if (res) {
-
       console.log("Data Submitted");
-
-
-  
     }
   };
 

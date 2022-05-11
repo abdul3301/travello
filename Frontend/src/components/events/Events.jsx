@@ -19,7 +19,8 @@ export default function Events() {
   const fetchEventData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/events/getEvents",
+        // "http://localhost:5000/events/getEvents",
+        "https://travelo-backend.herokuapp.com/events/getEvents",
       );
 
       // First Result of the response

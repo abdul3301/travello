@@ -45,7 +45,10 @@ export default function Hiking() {
     };
 
     // console.log(quantity);
-    const res = await axios.post("/adventuresBooking", obj);
+    const res = await axios.post(
+      "https://travelo-backend.herokuapp.com/adventuresBooking",
+      obj,
+    );
 
     if (res) {
       console.log("Booking Accepted");
