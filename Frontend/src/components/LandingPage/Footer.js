@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="Main">
-      <section className="SubMain">
+    <div className="FooterMain">
+      <section className="FooterSubMain">
         <p className="SubMain-heading">
           Join Us to receive great fun and Adrenaline
         </p>

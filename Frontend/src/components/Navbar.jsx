@@ -92,9 +92,11 @@ const Section = styled.section`
 
   html {
     font-size: 62.5%;
+    font-family: "Jost", sans-serif;
   }
   a {
     text-decoration: none;
+    font-family: "Jost", sans-serif;
   }
   li {
     list-style: none;
@@ -121,7 +123,7 @@ const Section = styled.section`
     margin-left: 4.5rem;
   }
   .logo h2 span {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .main-nav {
     background-color: #e6e6e6;
@@ -141,10 +143,12 @@ const Section = styled.section`
   .dropdown {
     float: left;
     overflow: hidden;
-    font-size: 19px;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: "Jost", sans-serif;
   }
   .dropdown .dropbtn {
-    font-size: 19px;
+    font-size: 18px;
     border: none;
     outline: none;
     color: black;
