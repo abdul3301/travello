@@ -22,9 +22,8 @@ import RoseExhibition from "./components/activities/specificpage/RoseExhibition"
 import WildLifeTour from "./components/activities/specificpage/WildLifeTour";
 import Login from "./components/Login";
 import ExpenseTraker from "./components/expenceTraker/ExpenseTraker";
-import Home from "./components/pages/Home";
+import Home from "./components/LandingPage/Home";
 import Products from "./components/Products";
-import Testimonials from "./components/Testimonials";
 import Wishlist from "./components/Wishlist";
 export default function App() {
   useEffect(() => {
@@ -36,9 +35,7 @@ export default function App() {
     });
     sr.reveal(
       `
-        #adventures,
-        #testimonials
-        
+        #adventures,        
         `,
       {
         opacity: 0,
@@ -86,7 +83,6 @@ export default function App() {
 
         <Route path="/Products" component={Products}></Route>
         <Route path="/WishList" component={Wishlist}></Route>
-        <Route path="/Testimonials" component={Testimonials}></Route>
         <Route path="/Galleries" component={Gallery}></Route>
         <Route path="/MapPage" component={MapPage}></Route>
         <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>

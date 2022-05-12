@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import avatarImage1 from "../assets/avatarImage1.jpeg";
-import avatarImage2 from "../assets/avatarImage2.jpeg";
-import avatarImage3 from "../assets/avatarImage3.jpeg";
+import avatarImage1 from "../../assets/avatarImage1.jpeg";
+import avatarImage2 from "../../assets/avatarImage2.jpeg";
+import avatarImage3 from "../../assets/avatarImage3.jpeg";
 export default function Testimonials() {
   return (
     <Section id="testimonials">

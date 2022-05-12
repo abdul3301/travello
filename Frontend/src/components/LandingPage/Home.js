@@ -1,9 +1,9 @@
 import React from "react";
 import "../../App.css";
-import Cards from "../LandingPage/Cards";
-import Footer from "../LandingPage/Footer";
-import HeroSection from "../LandingPage/HeroSection";
-import Testimonials from "../Testimonials";
+import Cards from "./Cards";
+import Footer from "./Footer";
+import HeroSection from "./HeroSection";
+import Testimonials from "./Testimonials";
 
 function Home({ history }) {
   console.log(history);
