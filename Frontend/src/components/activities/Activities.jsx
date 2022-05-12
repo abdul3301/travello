@@ -8,7 +8,8 @@ export default function Activities() {
   const fetchEventData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/activities/getActivities",
+        // "http://localhost:5000/activities/getActivities",
+        "https://travelo-backend.herokuapp.com/activities/getActivities",
       );
 
       // First Result of the response

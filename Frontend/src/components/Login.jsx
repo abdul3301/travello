@@ -67,7 +67,10 @@ export default function Login() {
       email: data.email,
       password: data.password,
     };
-    const res = await axios.post("http://localhost:5000/user/login", obj);
+    const res = await axios.post(
+      "https://travelo-backend.herokuapp.com/user/login",
+      obj,
+    );
 
     if (res) {
       console.log("Data Submitted");
