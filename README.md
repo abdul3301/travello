@@ -1,6 +1,6 @@
 # Travelo
 
-### <a href= https://travelo-v4.web.app/  target="_blank">**Live Demo 🚀**</a>
+ ### <a href="https://twitter.com/sai_kumar___" class="fab fa-twitter" target="_blank"></a>
 
 ## Tech Stack
 
