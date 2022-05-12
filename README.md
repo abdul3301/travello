@@ -17,7 +17,7 @@
 [![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3schools.com/css/)
 [![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://www.w3schools.com/html/)
 [![HEROKU](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)](https://devcenter.heroku.com/)
-[![FIREBASE](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)](https://firebase.google.com/docs)
+[![FIREBASE](https://img.shields.io/badge/Firebase-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)](https://firebase.google.com/docs)
 
 
 ![img](https://user-images.githubusercontent.com/77429211/168120717-5504fa5f-eb58-4ede-aec0-14e0689c3281.png)
