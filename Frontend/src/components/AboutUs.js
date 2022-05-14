@@ -3,13 +3,13 @@ import { Card } from "antd";
 import { Carousel } from "antd";
 import bonfire from "./images/bonfire.jpg";
 import camping from "./images/camping.jpg";
-import rafting from "./images/rafting.jpg";
+// import rafting from "./images/rafting.jpg";
 import skydiving from "./images/skydiving.jpg";
 import treking from "./images/treking.jpg";
 
 import "./aboutUs.css";
 import { FormItemStatusContext } from "antd/lib/form/context";
-import Footer from "./LandingComp/Footer";
+import Footer from "./LandingPage/Footer";
 const { Meta } = Card;
 
 const About = ({ history }) => {
@@ -135,7 +135,7 @@ const About = ({ history }) => {
                 objectFit: "contain",
                 borderRadius: "5px",
               }}
-              src={rafting}
+              // src={rafting}
             ></img>
           </div>
           <div onClick={() => history.push("/Adventure/SkyDiving")}>

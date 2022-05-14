@@ -1,4 +1,4 @@
-.Main {
+.FooterMain {
   background-color: #242424;
   padding: 4rem 0 2rem 0;
   display: flex;
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.SubMain {
+.FooterSubMain {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +19,7 @@
   color: #fff;
 }
 
-.SubMain > p {
+.SubMain-heading > p {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
