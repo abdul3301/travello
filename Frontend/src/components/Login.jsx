@@ -30,21 +30,30 @@ export default function Login() {
   };
 
   const submit = async (e) => {
-    e.preventDefault();
-    const obj = {
-      username: data.name,
-      email: data.email,
-      phone: data.phone,
-      password: data.password,
-    };
-    const res = await axios.post("http://localhost:5000/user/register", obj);
-
-    if (res) {
-      console.log("Data Submitted");
+    try {
+      e.preventDefault();
+      const obj = {
+        username: data.name,
+        email: data.email,
+        phone: data.phone,
+        password: data.password,
+      };
+      const res = await axios.post(
+        "https://travelo-backend.herokuapp.com/user/register",
+        obj,
+      );
       toast.success("Registered Successfully, You Can Now Log In");
-    } else {
-      toast.error("Registration Failed, try again");
+    } catch (error) {
+      toast.error("Registration failed due to invalid data");
+      // console.log(error);
     }
+
+    // if (res) {
+    //   console.log("Data Submitted");
+    //   toast.success("Registered Successfully, You Can Now Log In");
+    // } else {
+    //   toast.error("Registration Failed, try again");
+    // }
 
     // console.log(obj);
     // const res = await axios.post('http://localhost:5000/user/register ', obj);
@@ -59,6 +68,10 @@ export default function Login() {
     //     autoClose: 3000,
     //   });
     // }
+  };
+
+  const handleSignUp = () => {
+    setSignUp(!signUp);
   };
 
   const submitLogin = async (e) => {
@@ -141,7 +154,7 @@ export default function Login() {
               onChange={(e) => handleInputs(e)}
               placeholder="Password"
             />
-            <button>Sign UP</button>
+            <button onClick={submit}>Sign UP</button>
           </form>
         </div>
         <div className="form-container sign-in-container">
@@ -195,11 +208,7 @@ export default function Login() {
             <div className="overlay-panel overlay-right">
               <h1> Hello, Friend!</h1>
               <p>Enter your personal details and start journey with us </p>
-              <button
-                className="ghost"
-                id="signUp"
-                onClick={() => setSignUp(!signUp)}
-              >
+              <button className="ghost" id="signUp" onClick={handleSignUp}>
                 Sign Up
               </button>
             </div>
