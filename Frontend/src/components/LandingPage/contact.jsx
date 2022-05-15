@@ -1,4 +1,6 @@
 import { Form, Input, InputNumber, Button } from "antd";
+import axios from "axios";
+import { toast } from "react-toastify";
 const layout = {
   labelCol: {
     span: 4,
@@ -21,9 +23,14 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-const Demo = () => {
-  const onFinish = (values) => {
+const ContactUs = () => {
+  const onFinish = async (values) => {
     console.log(values);
+    const resp = await axios.post(
+      "http://localhost:5000/user/contact",
+      values.user
+    );
+    toast.success(resp.data);
   };
 
   return (
@@ -56,7 +63,7 @@ const Demo = () => {
         <Input />
       </Form.Item>
 
-      <Form.Item name={["user", "website"]} label="Description">
+      <Form.Item name={["user", "description"]} label="Description">
         <Input />
       </Form.Item>
 
@@ -69,4 +76,4 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default ContactUs;
