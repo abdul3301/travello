@@ -16,20 +16,20 @@ function Footer() {
         <div className="footer-link-wrapper">
           <div class="footer-link-items">
             <h2>About Us</h2>
-            <Link to="/">About</Link>
-            <Link to="/">Testimonials</Link>
+            <Link to="About">About</Link>
+            <Link to="/">Destinations</Link>
           </div>
           <div class="footer-link-items">
             <h2>Contact Us</h2>
             <Link to="/">Contact</Link>
 
-            <Link to="/">Destinations</Link>
+            <Link to="Events">Events</Link>
           </div>
 
           <div class="footer-link-items">
-            <h2>Social Media</h2>
-            <Link to="/">Instagram</Link>
-            <Link to="/">Facebook</Link>
+            <h2>Services</h2>
+            <Link to="Adventures">Adventures</Link>
+            <Link to="Activities">Activities</Link>
           </div>
         </div>
       </div>

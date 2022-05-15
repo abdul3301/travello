@@ -40,7 +40,7 @@ export default function Login() {
       };
       const res = await axios.post(
         "https://travelo-backend.herokuapp.com/user/register",
-        obj,
+        obj
       );
       toast.success("Registered Successfully, You Can Now Log In");
     } catch (error) {
@@ -82,7 +82,7 @@ export default function Login() {
     };
     const res = await axios.post(
       "https://travelo-backend.herokuapp.com/user/login",
-      obj,
+      obj
     );
 
     if (res) {
@@ -193,7 +193,7 @@ export default function Login() {
         <div className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-left">
-              <h1 style={{ color: "white" }}> Welcome Back!</h1>
+              <h1> Welcome Back!</h1>
               <p>
                 To keep connected with us please login with your personal info
               </p>
@@ -223,7 +223,6 @@ const Section = styled.section`
   * {
     box-sizing: border-box;
   }
-
   h1 {
     font-weight: bold;
     margin: 0;
@@ -264,7 +263,6 @@ const Section = styled.section`
     align-items: center;
     text-align: center;
   }
-
   .social-container {
     margin: 20px 0;
   }
@@ -285,7 +283,6 @@ const Section = styled.section`
     margin: 8px 0;
     width: 100%;
   }
-
   button {
     border-radius: 20px;
     border: 1px solid #ff4b2b;
@@ -302,7 +299,6 @@ const Section = styled.section`
   button:active {
     transform: scale(0.95);
   }
-
   button:focus {
     outline: none;
   }
@@ -327,7 +323,6 @@ const Section = styled.section`
     opacity: 0;
     z-index: 1;
   }
-
   .overlay-container {
     position: absolute;
     top: 0;
@@ -364,7 +359,6 @@ const Section = styled.section`
     transform: translateX(0);
     transform: transform 0.6s ease-in-out;
   }
-
   .overlay-right {
     right: 0;
     transform: translateX(0);
@@ -372,24 +366,20 @@ const Section = styled.section`
   .overlay-left {
     transform: translateX(-20%);
   }
-
   // Move signin to the right
   .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
   }
-
   // Move overlay to left
   .container.right-panel-active .overlay-container {
     transform: translateX(-100%);
   }
-
   // Bring sign up over sign in
   .container.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
   }
-
   // Move overlay back to right
   .container.right-panel-active .overlay {
     transform: translateX(50%);
@@ -400,7 +390,6 @@ const Section = styled.section`
   .container.right-panel-active .overlay-right {
     transform: translateX(20%);
   }
-
   // Responsive
   @media (max-width: 1024px) {
     .container {
@@ -439,7 +428,6 @@ const Section = styled.section`
       transition: transform 80ms ease-in;
       cursor: pointer;
     }
-
     .form-container form {
       background: #fff;
       display: flex;

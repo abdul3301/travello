@@ -1,56 +1,19 @@
-import react from "react";
+import React, { useState } from "react";
 import { Card } from "antd";
 import { Carousel } from "antd";
 import bonfire from "./images/bonfire.jpg";
-import camping from "./images/camping.jpg";
+// import camping from "./images/camping.jpg";
 // import rafting from "./images/rafting.jpg";
 import skydiving from "./images/skydiving.jpg";
 import treking from "./images/treking.jpg";
-
+import FormLayoutDemo from "./LandingPage/contact";
 import "./aboutUs.css";
 import { FormItemStatusContext } from "antd/lib/form/context";
 import Footer from "./LandingPage/Footer";
+
 const { Meta } = Card;
 
 const About = ({ history }) => {
-  let data = [
-    {
-      id: 1,
-      title: "Abdul",
-      desc: "xyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
-      image:
-        "https://www.hollywoodreporter.com/wp-content/uploads/2019/03/avatar-publicity_still-h_2019.jpg?w=681&h=383&crop=1",
-    },
-    {
-      id: 1,
-      title: "Vaishnavi",
-      desc: "xyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
-      image:
-        "https://www.hollywoodreporter.com/wp-content/uploads/2019/03/avatar-publicity_still-h_2019.jpg?w=681&h=383&crop=1",
-    },
-    {
-      id: 1,
-      title: "jahangir",
-      desc: "xyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
-      image:
-        "https://www.hollywoodreporter.com/wp-content/uploads/2019/03/avatar-publicity_still-h_2019.jpg?w=681&h=383&crop=1",
-    },
-    {
-      id: 1,
-      title: "Sai Kumar",
-      desc: "xyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
-      image:
-        "https://www.hollywoodreporter.com/wp-content/uploads/2019/03/avatar-publicity_still-h_2019.jpg?w=681&h=383&crop=1",
-    },
-    {
-      id: 1,
-      title: "Bhavyashree",
-      desc: "xyzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
-      image:
-        "https://www.hollywoodreporter.com/wp-content/uploads/2019/03/avatar-publicity_still-h_2019.jpg?w=681&h=383&crop=1",
-    },
-  ];
-
   return (
     <div>
       <div className="vacant"></div>
@@ -59,39 +22,25 @@ const About = ({ history }) => {
           ABOUT US
         </h1>
       </div>
-      <div className="about-sub-main">
-        <h2
-          style={{
-            fontFamily: "initial",
-            textAlign: "center",
-            justifyContent: "center",
-          }}
-          className="text"
-        >
-          Welcome!!
-          <br />
-          We are the designers of this application.
-        </h2>
-      </div>
-      <div className="aboutMakers">
-        {data.map((item, i) => (
-          <Card
-            className="aboutMakerCard"
-            cover={
-              <img
-                className="makerImage"
-                src={item.image}
-                style={{
-                  width: "100%",
-                  height: "200px",
-                  objectFit: "contain",
-                }}
-              />
-            }
+      <div className="midPart">
+        <div className="about-sub-main1">
+          <h2
+            style={{
+              fontFamily: "initial",
+              textAlign: "center",
+              justifyContent: "center",
+            }}
+            className="text"
           >
-            <Meta title={item.title} description={item.desc}></Meta>
-          </Card>
-        ))}
+            Welcome!!
+            <br />
+            We are the designers of this application.
+          </h2>
+        </div>
+        <div className="about-sub-main2">
+          <h1 style={{ fontFamily: "initial" }}>CONTACT US</h1>
+          <FormLayoutDemo />
+        </div>
       </div>
 
       <div className="aboutCheck">
@@ -124,7 +73,7 @@ const About = ({ history }) => {
                 objectFit: "contain",
                 borderRadius: "5px",
               }}
-              src={camping}
+              // src={camping}
             ></img>
           </div>
           <div onClick={() => history.push("/Adventure/CliffJumping")}>
@@ -162,6 +111,7 @@ const About = ({ history }) => {
           </div>
         </Carousel>
       </div>
+
       <Footer />
 
       {/* <div className="header">

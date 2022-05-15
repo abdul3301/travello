@@ -26,7 +26,7 @@ import ExpenseTraker from "./components/expenceTraker/ExpenseTraker";
 import Home from "./components/LandingPage/Home";
 import Products from "./components/Products";
 import Wishlist from "./components/Wishlist";
-// import About from "./components/AboutUs";
+import About from "./components/AboutUs";
 export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
@@ -89,7 +89,7 @@ export default function App() {
         <Route path="/MapPage" component={MapPage}></Route>
         <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>
         <Route path="/Login" component={Login}></Route>
-        {/* <Route path="/About" component={About}></Route> */}
+        <Route path="/About" component={About}></Route>
       </Switch>
 
       <ScrollToTop />

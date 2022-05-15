@@ -1,10 +1,9 @@
 .vacant {
-  height: 100px;
+  height: 60px;
 }
 
 .text {
   color: rgb(0, 0, 0) !important;
-
 }
 
 .aboutMain {
@@ -20,16 +19,51 @@
   font-size: xx-large;
   border: 2px solid whitesmoke;
   margin: 10px;
-  transition: 0.3s ease-in-out; 
-
-
+  transition: 0.3s ease-in-out;
 }
-
-.about-sub-main {
+.midPart {
+  border: 2px solid whitesmoke;
+  background-image: linear-gradient(to bottom, #e6e6e6, #6d646453);
+  margin: 10px;
+  padding: 1rem 1rem;
+  text-align: center;
+}
+.about-sub-main1 {
+  display: inline-block;
+  border: 2px solid whitesmoke;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+  /* background-image: linear-gradient(to bottom, #6d646453, #e6e6e6); */
+  background-color: #e6e6e6;
+  height: 80vh;
+  width: 90vh;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  margin: 10px;
+}
+.about-sub-main2 {
+  display: inline-block;
+  border: 2px solid whitesmoke;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+  /* background-image: linear-gradient(to bottom, #6d646453, #e6e6e6); */
+  background-color: #e6e6e6;
+  height: 80vh;
+  width: 90vh;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding-top: 170px;
+  padding-left: 50px;
+  margin: 10px;
+}
+.contactAbout {
   background-image: linear-gradient(to bottom, #6d646453, #e6e6e6);
   height: 20vh;
   align-items: center;
   padding-top: 40px;
+  text-align: center;
 
   display: flex;
   flex-direction: column;
@@ -37,7 +71,6 @@
   padding-bottom: 0px;
   border: 2px solid whitesmoke;
   margin: 10px;
-
 }
 
 .aboutMakers {
@@ -58,11 +91,10 @@
   border-radius: "10px";
   background-color: #e6e6e6 !important;
   background-image: linear-gradient(to bottom, #6d646453, #e6e6e6);
-  
 }
 .aboutMakerCard:hover {
   transform: translateX(0.2rem) translateY(0.5rem);
-  box-shadow:  rgba(218, 205, 205, 0.35) 0px 5px 15px;
+  box-shadow: rgba(218, 205, 205, 0.35) 0px 5px 15px;
   transition: 0.2s ease-in-out;
 }
 
@@ -77,14 +109,10 @@
   margin: 10px;
   align-items: center;
   justify-content: center;
-
 }
-.ant-card ant-card-bordered makerCard{
+.ant-card ant-card-bordered makerCard {
   background-image: linear-gradient(to bottom, #6d646453, #e6e6e6);
-
 }
-
-
 
 @media screen and (min-width: 280px) and (max-width: 768px) {
   .aboutMakers {
@@ -94,16 +122,12 @@
     flex-direction: column;
     border: 2px solid black;
     height: fit-content;
-   
   }
-  .aboutMakerCard{
+  .aboutMakerCard {
     width: 100%;
     height: 100%;
   }
- 
 }
-
-
 
 /* .main {
     width: 100%;
