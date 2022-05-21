@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
-
+// const { ObjectId } = Object.Schema;
 const products = new mongoose.Schema(
   {
     title: { type: String, required: true },
@@ -15,10 +15,6 @@ const products = new mongoose.Schema(
     image: {
       type: String,
       required: true,
-    },
-    liked: {
-      type: Boolean,
-      default: false,
     },
     url: {
       type: String,

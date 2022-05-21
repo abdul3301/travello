@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { GrFacebookOption } from "react-icons/gr";
 import { AiOutlineGooglePlus } from "react-icons/ai";
@@ -7,14 +7,22 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
+import { AppContext, useAppConext } from "../context/AppContext";
 
 toast.configure();
 
 export default function Login() {
   const [signUp, setSignUp] = useState("");
-
+  const { dispatch, user } = useAppConext();
+  console.log(user);
   const url = "/user/register";
   const history = useHistory();
+
+  useEffect(() => {
+    if (user && Object.keys(user).length) {
+      history.push("/Adventures");
+    }
+  }, []);
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -43,6 +51,7 @@ export default function Login() {
         obj
       );
       toast.success("Registered Successfully, You Can Now Log In");
+      localStorage.setItem("email", data.email);
     } catch (error) {
       toast.error("Registration failed due to invalid data");
       // console.log(error);
@@ -85,10 +94,17 @@ export default function Login() {
       obj
     );
 
+    console.log(res.data);
+
     if (res) {
       console.log("Data Submitted");
       toast.success("Login Success");
       history.push("/Adventures");
+      console.log(res.data.data.user);
+      dispatch({
+        type: "USER_LOGIN",
+        payload: res.data.data.user,
+      });
     } else {
       toast.error("Login Failed, try again");
     }

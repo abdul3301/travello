@@ -1,56 +1,62 @@
 import react, { useEffect, useState } from "react";
 import { Card } from "antd";
-import {
-  HeartOutlined,
-  HeartFilled,
-} from "@ant-design/icons";
-const Wishlist = ({history}) => {
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { useAppConext } from "../context/AppContext";
+import axios from "axios";
+const Wishlist = ({ history }) => {
   const { Meta } = Card;
-  const email = localStorage.getItem("email");
-  const [likedItems, setlikedItems] = useState(
-    JSON.parse(localStorage.getItem("liked-products")) || []
-  );
-  useEffect(()=>{
-    if(!email){
-      history.push("/Login")
+  const { user, dispatch } = useAppConext();
+  const [likedItems, setlikedItems] = useState([]);
+  const email = user.email;
+
+  useEffect(async () => {
+    if (!user?.email) {
+      history.push("/Login");
+      return;
     }
-  },[])
-  const handleHeartClick = (id) => {
-    let itemIndex=likedItems.findIndex((li)=>li.id==id);
-    likedItems[itemIndex]={...likedItems[itemIndex],user:likedItems[itemIndex].user.filter((element)=> element !=email)}; // [4,7,8]-> [4,8]
-    console.log({likedItems})
-    setlikedItems([...likedItems]);
-    localStorage.setItem("liked-products", JSON.stringify(likedItems));
-    alert("Removed from wishlist");
+    const resp = await axios.post("http://localhost:5000/user/wishlist", {
+      email,
+    });
+    console.log(resp);
+    setlikedItems(resp.data.wishlist);
+  }, []);
+  const handleHeartClick = async (id) => {
+    const resp = await axios.put("http://localhost:5000/user/wishlist", {
+      email,
+      productId: id,
+    });
+    let updatedItems = likedItems.filter((o) => o._id != id);
+    setlikedItems([...updatedItems]);
+    dispatch({ type: "UPDATE_WISHLIST", payload: updatedItems });
   };
 
   return (
     <div className="productMain">
-      <div className="productSubMain"
-      // style={{
-      //   display: "flex",
-      //   position: "relative",
-      //   top: "8rem",
-      //   gap: "30%",
-      //   padding: "50px",
-      // }}
+      <div
+        className="productSubMain"
+        // style={{
+        //   display: "flex",
+        //   position: "relative",
+        //   top: "8rem",
+        //   gap: "30%",
+        //   padding: "50px",
+        // }}
       >
         <div className="productCard">
           {likedItems.length ? (
-            likedItems.filter((lp) => lp.user.includes(email)).map((item, i) => (
+            likedItems.map((item, i) => (
               <Card
                 actions={[
-                  item.liked && (
-                    <HeartFilled
-                      style={{
-                        fontSize: "25px",
-                        color: "red",
-                      }}
-                      onClick={() => handleHeartClick(item.id)}
-                    />
-                  ),
-                  <a target="_blank" href={item.url}><button className="buyNowBtn">BUY NOW</button></a>,
-
+                  <HeartFilled
+                    style={{
+                      fontSize: "25px",
+                      color: "red",
+                    }}
+                    onClick={() => handleHeartClick(item.id)}
+                  />,
+                  <a target="_blank" href={item.url}>
+                    <button className="buyNowBtn">BUY NOW</button>
+                  </a>,
                 ]}
                 style={{ width: 300, height: 400 }}
                 cover={
@@ -80,10 +86,8 @@ const Wishlist = ({history}) => {
             <h2>No liked items</h2>
           )}
         </div>
-
       </div>
     </div>
-
   );
 };
 

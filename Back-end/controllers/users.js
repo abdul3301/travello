@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
 const ContactUs = require("../models/contact");
-const products = require("../models/products");
+const Products = require("../models/products");
 
 // Fetch all users from database
 
@@ -136,7 +136,7 @@ const saveContactUs = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
-    const products = await products.find({}).exec();
+    const products = await Products.find({}).exec();
     res.json(products);
   } catch (err) {
     console.log(err);
@@ -144,12 +144,22 @@ const getAllProducts = async (req, res) => {
   }
 };
 
+const addProduct = async (req, res) => {
+  try {
+    const products = await new Products(req.body).save();
+    res.json(products);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("something wents wrong");
+  }
+};
 const getWishListProducts = async (req, res) => {
   try {
-    const wishlist = await User.findOne({ email: req.email })
+    const wishlist = await User.findOne({ email: req.body.email })
       .select("wishlist")
-      .populate()
+      .populate("wishlist")
       .exec();
+    console.log(wishlist);
     res.json(wishlist);
   } catch (err) {
     console.log(err);
@@ -162,9 +172,11 @@ const addProductToWishList = async (req, res) => {
     const { productId, email } = req.body;
     const wishlist = await User.findOneAndUpdate(
       { email },
-      { $push: { wishlist: { productId } } }
+      { $push: { wishlist: productId } }
     ).exec();
-    res.send("Saved to wishlist!.. ");
+
+    console.log({ wishlist, productId, email });
+    res.status(201).send("Saved to wishlist!.. ");
   } catch (err) {
     console.log(err);
     res.status(500).send("something wents wrong");
@@ -195,4 +207,5 @@ module.exports = {
   getWishListProducts,
   addProductToWishList,
   removeFromWishList,
+  addProduct,
 };

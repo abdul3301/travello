@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "antd/dist/antd.css";
 import ScrollToTop from "./components/ScrollToTop";
 import scrollreveal from "scrollreveal";
@@ -27,7 +27,9 @@ import Home from "./components/LandingPage/Home";
 import Products from "./components/Products";
 import Wishlist from "./components/Wishlist";
 import About from "./components/AboutUs";
+import { AppContext, AppProvider, useAppConext } from "./context/AppContext";
 export default function App() {
+  const { user, dispatch } = useAppConext();
   useEffect(() => {
     const sr = scrollreveal({
       origin: "top",
@@ -47,52 +49,64 @@ export default function App() {
   }, []);
 
   return (
-    <Router>
-      <Navbar />
+    <>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
 
-      <Switch>
-        <Route path="/" exact component={Home}></Route>
+          {/* Adventures Routing Start */}
+          <Route path="/Adventures" component={Adventures}></Route>
+          <Route path="/Adventure/Camping" component={Camping}></Route>
+          <Route path="/Adventure/Hiking" component={Hiking}></Route>
+          <Route
+            path="/Adventure/CliffJumping"
+            component={CliffJumping}
+          ></Route>
+          <Route
+            path="/Adventure/MountainBiking"
+            component={MountainBiking}
+          ></Route>
+          <Route path="/Adventure/ZipLining" component={ZipLining}></Route>
+          <Route path="/Adventure/SkyDiving" component={SkyDiving}></Route>
+          {/* Adventures Routing End */}
 
-        {/* Adventures Routing Start */}
-        <Route path="/Adventures" component={Adventures}></Route>
-        <Route path="/Adventure/Camping" component={Camping}></Route>
-        <Route path="/Adventure/Hiking" component={Hiking}></Route>
-        <Route path="/Adventure/CliffJumping" component={CliffJumping}></Route>
-        <Route
-          path="/Adventure/MountainBiking"
-          component={MountainBiking}
-        ></Route>
-        <Route path="/Adventure/ZipLining" component={ZipLining}></Route>
-        <Route path="/Adventure/SkyDiving" component={SkyDiving}></Route>
-        {/* Adventures Routing End */}
+          {/* Activities Routing Start */}
+          <Route path="/Activities" component={Activities}></Route>
+          <Route path="/Activity/Exhibition" component={Exhibition}></Route>
+          <Route path="/Activity/IndiaArtFair" component={IndiaArtFair}></Route>
+          <Route path="/Activity/DairyExpo" component={DairyExpo}></Route>
+          <Route path="/Activity/PupperParty" component={PupperParty}></Route>
+          <Route
+            path="/Activity/RoseExhibition"
+            component={RoseExhibition}
+          ></Route>
+          <Route path="/Activity/WildLifeTour" component={WildLifeTour}></Route>
+          {/* Activities Routing End */}
 
-        {/* Activities Routing Start */}
-        <Route path="/Activities" component={Activities}></Route>
-        <Route path="/Activity/Exhibition" component={Exhibition}></Route>
-        <Route path="/Activity/IndiaArtFair" component={IndiaArtFair}></Route>
-        <Route path="/Activity/DairyExpo" component={DairyExpo}></Route>
-        <Route path="/Activity/PupperParty" component={PupperParty}></Route>
-        <Route
-          path="/Activity/RoseExhibition"
-          component={RoseExhibition}
-        ></Route>
-        <Route path="/Activity/WildLifeTour" component={WildLifeTour}></Route>
-        {/* Activities Routing End */}
+          {/* Events Routing Start */}
+          <Route path="/Events" component={Events}></Route>
+          {/* Events Routing End */}
 
-        {/* Events Routing Start */}
-        <Route path="/Events" component={Events}></Route>
-        {/* Events Routing End */}
+          <Route path="/Products" component={Products}></Route>
+          <Route path="/WishList" component={Wishlist}></Route>
+          <Route path="/Galleries" component={Gallery}></Route>
+          <Route path="/MapPage" component={MapPage}></Route>
+          <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>
+          <Route
+            path="/Login"
+            // render={() => (
+            //   <AppProvider>
+            //     <Login />
+            //   </AppProvider>
+            // )}
+            component={Login}
+          ></Route>
+          <Route path="/About" component={About}></Route>
+        </Switch>
 
-        <Route path="/Products" component={Products}></Route>
-        <Route path="/WishList" component={Wishlist}></Route>
-        <Route path="/Galleries" component={Gallery}></Route>
-        <Route path="/MapPage" component={MapPage}></Route>
-        <Route path="/ExpenseTraker" component={ExpenseTraker}></Route>
-        <Route path="/Login" component={Login}></Route>
-        <Route path="/About" component={About}></Route>
-      </Switch>
-
-      <ScrollToTop />
-    </Router>
+        <ScrollToTop />
+      </Router>
+    </>
   );
 }

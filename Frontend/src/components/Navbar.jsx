@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
 import location from "../assets/location.png";
+import { AppContext, useAppConext } from "../context/AppContext";
+import { Link, useHistory } from "react-router-dom";
 
-export default function Navbar({ loginUser, handleLogout }) {
+export default function Navbar() {
   const [showHamburger, setShowHamburger] = useState(false);
+  const { user, dispatch } = useAppConext();
+  const history = useHistory();
+
+  const handleLogout = () => {
+    if (window.confirm("Are you sure that you want to logout..")) {
+      dispatch({ type: "USER_LOGOUT" });
+      history.push("/Login");
+    }
+  };
   return (
     <Section id="navbar">
       <>
@@ -50,14 +61,14 @@ export default function Navbar({ loginUser, handleLogout }) {
                   Products <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                  <a href="/Products">Product-List</a>
-                  <a href="/WishList">Wish-List</a>
+                  <Link to="/Products">Product-List</Link>
+                  <Link to="/WishList">Wish-List</Link>
                 </div>
               </div>
 
-              {!loginUser ? (
+              {user && Object.keys(user).length == 0 ? (
                 <li>
-                  <a href="/Login">LogIn</a>
+                  <Link to="/Login">LogIn</Link>
                 </li>
               ) : (
                 <li
@@ -65,7 +76,7 @@ export default function Navbar({ loginUser, handleLogout }) {
                   onClick={handleLogout}
                   style={{ cursor: "pointer", fontWeight: "bold" }}
                 >
-                  {loginUser?.email?.split("@")[0]}
+                  {user?.email?.split("@")[0]}
                 </li>
               )}
             </ul>
@@ -73,9 +84,9 @@ export default function Navbar({ loginUser, handleLogout }) {
 
           {/* hamburger menu */}
           <div className="hamburger-menu">
-            <a href="#" onClick={() => setShowHamburger(!showHamburger)}>
+            <Link to="#" onClick={() => setShowHamburger(!showHamburger)}>
               <GiHamburgerMenu />
-            </a>
+            </Link>
           </div>
           {/* hamburger end */}
         </nav>

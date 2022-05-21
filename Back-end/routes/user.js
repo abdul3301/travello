@@ -9,6 +9,7 @@ const {
   getWishListProducts,
   addProductToWishList,
   removeFromWishList,
+  addProduct,
 } = require("../controllers/users");
 
 const router = express.Router();
@@ -28,10 +29,11 @@ router.post("/user/contact", saveContactUs);
 
 //products
 router.get("/products", getAllProducts);
+router.post("/product", addProduct);
 
 //wishlist
-router.get("/user/wishlist", getWishListProducts);
-router.post("/user/wishlist", addProductToWishList);
+router.post("/user/wishlist", getWishListProducts);
+router.post("/user/wishlist/add", addProductToWishList);
 router.put("/user/wishlist", removeFromWishList);
 
 module.exports = router;
